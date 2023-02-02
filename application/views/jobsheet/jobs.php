@@ -57,7 +57,7 @@
                     <div class="card-block">
                         <div class="media">
                             <div class="media-body text-xs-left">
-                                <h3 class="cyan"><?php echo $totalt ?></h3>
+                                <h3 class="cyan"><?php // echo $totalt ?></h3>
                                 <span><?php // echo $this->lang->line('Total') ?></span>
                             </div>
                             <div class="media-right media-middle">
@@ -83,7 +83,6 @@
 
 
             <p>&nbsp;</p>
-
 
             <table id="doctable" class="table table-striped table-bordered zero-configuration" cellspacing="0"
                    width="100%">
@@ -132,7 +131,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
-/*
+
         $('#doctable').DataTable({
 
             "processing": true,
@@ -144,7 +143,7 @@
                     $filter = $_GET['filter'];
                 } else {
                     $filter = '';
-                }    echo site_url('tickets/tickets_load_list?stat=' . $filter)?>",
+                }    echo site_url('jobsheets/tasks_load_list?stat=' . $filter)?>",
                 "type": "POST",
                 'data': {'<?=$this->security->get_csrf_token_name()?>': crsf_hash}
             },
@@ -158,6 +157,6 @@
 
         });
         miniDash();
-*/
+
     });
 </script>

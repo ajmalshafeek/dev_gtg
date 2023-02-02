@@ -13,14 +13,19 @@
 }
 
 </style>
-<?php if(isset($message)){
-echo $status;
-echo $message;
- echo '<div id="notify" class="alert alert-'.$status.'">
+
+<?php
+
+$task =$this->session->flashdata('task');
+//var_dump($task);
+
+if(isset($_SESSION['status'])){
+ echo '<div id="notify" class="alert alert-'.$_SESSION['status'].'">
             <a href="#" class="close" data-dismiss="alert">&times;</a>
 
-            <div class="message">' .$message. '</div>
+            <div class="message">' .$_SESSION['message']. '</div>
         </div>';
+unset($_SESSION['status']);unset($_SESSION['message']);
 } ?>
 
 <div class="card">

@@ -24,7 +24,7 @@ class Jobsheet_model extends CI_Model
     {
         $cid=0;
         $this->aauth->applog("[Jobsheets Doc Added]  DocId $title ComplaintId " . $complaintid, $this->aauth->get_user()->username);
-        $data = array('title' => $title, 'filename' => $filename, 'cdate' => date('Y-m-d'), 'cid' => $this->aauth->get_user()->id, 'fid' => $cid, 'rid' => 0,'complaintid'=>$complaintid);
+        $data = array('title' => $title, 'filename' => $filename, 'cdate' => date('Y-m-d'), 'userid' => 0,'fid' => $cid, 'rid' => 0,'complaintid'=>$complaintid, 'userid' => $this->aauth->get_user()->id);
         return $this->db->insert('gtg_documents', $data);
     }
 
@@ -76,22 +76,74 @@ class Jobsheet_model extends CI_Model
             return true;
         }
 
+   function jobsheet_datatables($filt)
+    {
+        $this->jobsheet_datatables_query($filt);
+        if ($this->input->post('length') != -1)
+            $this->db->limit($this->input->post('length'), $this->input->post('start'));
+        $query = $this->db->get();
+        return $query->result();
+    }
+    private function jobsheet_datatables_query($filt)
+    {
+
+        $this->db->from('gtg_job');
+        if ($filt == 'unsolved') {
+            $this->db->where('status!=', '3');
+        }
+
+        $i = 0;
+
+        foreach ($this->doccolumn_search as $item) // loop column
+        {
+            $search = $this->input->post('search');
+            $value = $search['value'];
+            if ($value) {
+
+                if ($i === 0) {
+                    $this->db->group_start();
+                    $this->db->like($item, $value);
+                } else {
+                    $this->db->or_like($item, $value);
+                }
+
+                if (count($this->doccolumn_search) - 1 == $i) //last loop
+                    $this->db->group_end(); //close bracket
+            }
+            $i++;
+        }
+        $search = $this->input->post('order');
+        if ($search) {
+            $this->db->order_by($this->doccolumn_order[$search['0']['column']], $search['0']['dir']);
+        } else if (isset($this->order)) {
+            $order = $this->order;
+            $this->db->order_by(key($order), $order[key($order)]);
+        }
+    }
+    function jobsheet_count_filtered($filt)
+    {
+        $this->jobsheet_datatables_query($filt);
+        $query = $this->db->get();
+        return $query->num_rows();
     }
 
+    public function jobsheet_count_all($filt)
+    {
+        $this->jobsheet_datatables_query($filt);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
 
-
-/*
-
-    public function thread_list($id)
+    public function thread_jobsheet_list($id)
     {
         $this->db->select('*');
-        $this->db->from('job');
-        $this->db->where('gtg_tickets_th.tid', $id);
+        $this->db->from('gtg_jobsheets_th');
+        $this->db->where('jid', $id);
         $query = $this->db->get();
         return $query->result_array();
     }
 
-    private function send_email($mailto, $mailtotitle, $subject, $message, $attachmenttrue = false, $attachment = '')
+    private function send_jobsheet_email($mailto, $mailtotitle, $subject, $message, $attachmenttrue = false, $attachment = '')
     {
         $this->load->library('ultimatemailer');
         $this->db->select('host,port,auth,auth_type,username,password,sender');
@@ -110,16 +162,15 @@ class Jobsheet_model extends CI_Model
         $this->ultimatemailer->bin_send($host, $port, $auth, $auth_type, $username, $password, $mailfrom, $mailfromtilte, $mailto, $mailtotitle, $subject, $message, $attachmenttrue, $attachment);
     }
 
-    public function thread_info($id)
+    public function thread_jobsheet_info($id)
     {
-        $this->db->select('gtg_tickets.*, gtg_customers.name,gtg_customers.email');
-        $this->db->from('gtg_tickets');
-        $this->db->join('gtg_customers', 'gtg_tickets.cid=gtg_customers.id', 'left');
-        $this->db->where('gtg_tickets.id', $id);
+        $this->db->select('*');
+        $this->db->from('gtg_job');
+        $this->db->where('id', $id);
         $query = $this->db->get();
         return $query->row_array();
     }
-
+/*
     public function ticket()
     {
         $this->db->select('*');
@@ -233,3 +284,4 @@ class Jobsheet_model extends CI_Model
     }
 */
 
+}
