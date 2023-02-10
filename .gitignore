@@ -1,3 +1,7 @@
 userfiles/documents/*
 application/logs/*
 application/logs/log-2023-01-31.php
+application/config/config.php
+application/config/database.php
+crm/application/config/config.php
+crm/application/config/database.php
