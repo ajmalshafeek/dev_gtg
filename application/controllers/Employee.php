@@ -412,7 +412,6 @@ class Employee extends CI_Controller
         }
     }
 
-
     public function updatepassword()
     {
 
@@ -491,8 +490,9 @@ class Employee extends CI_Controller
             if ($this->input->post($name5)) $val5 = 1;
             if ($this->input->post($name6)) $val6 = 1;
             if ($this->input->post($name7)) $val7 = 1;
+            if ($this->input->post($name8)) $val8 = 1;
             if ($this->aauth->get_user()->roleid == 5 && $i == 9) $val5 = 1;
-            $data = array('r_1' => $val1, 'r_2' => $val2, 'r_3' => $val3, 'r_4' => $val4, 'r_5' => $val5, 'r_6' => $val6, 'r_7' => $val7);
+            $data = array('r_1' => $val1, 'r_2' => $val2, 'r_3' => $val3, 'r_4' => $val4, 'r_5' => $val5, 'r_6' => $val6, 'r_7' => $val7,'r_8' => $val8);
             $this->db->set($data);
             $this->db->where('id', $i);
             $this->db->update('gtg_premissions');
@@ -901,5 +901,14 @@ class Employee extends CI_Controller
         } else {
             echo json_encode(array('status' => 'Error', 'message' => $this->lang->line('ERROR')));
         }
+    }
+    public function employee_list(){
+
+    $list=$this->employee->list_employee();
+    $html='';
+        foreach($list as $item){
+        $html.='<option value="'.$item['id'].'">'.$item['name'].'</option>';
+        }
+    echo $html;
     }
 }

@@ -30,6 +30,6 @@ define('POSV', '1');
 define('INVV', '1');
 define('BDATA', '0');
 define('CUSTOM', '1');
-define('MENU', '0');
+define('MENU', '1');
 define('PAC', '1');
 define('EMPS', '1');

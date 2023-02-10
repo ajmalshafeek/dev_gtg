@@ -754,12 +754,13 @@
                     </ul>
                 </li>
             <?php }
-            if ($this->aauth->premission(3)) {
+              if ($this->aauth->premission(15)||$this->aauth->premission(16)||$this->aauth->premission(17)) {
                 ?>
                 <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#"
                                                                       data-toggle="dropdown"><i
                                 class="icon-diamond"></i><span><?php echo $this->lang->line('Jobsheet') ?>Jobsheet</span></a>
                     <ul class="dropdown-menu">
+                        <?php if($this->aauth->premission(15)){ ?>
                         <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
                                     class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown"><i
                                         class="ft-users"></i><?php // echo $this->lang->line('Clients') ?>Task Manager</a>
@@ -773,6 +774,19 @@
                                 </li>
                             </ul>
                         </li>
+                        <?php } ?>
+                        <?php if($this->aauth->premission(16)){ ?>
+                        <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
+                                    class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown"><i
+                                        class="ft-users"></i><?php // echo $this->lang->line('Clients') ?>My Task</a>
+                            <ul class="dropdown-menu">
+                                <li data-menu=""><a class="dropdown-item"
+                                                    href="<?php echo base_url(); ?>jobsheets/myjobs"
+                                                    data-toggle="dropdown"><?php // echo $this->lang->line('New Client') ?>Task List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <?php } ?>
                       <!--  <li data-menu="">
                             <a class="dropdown-item" href="<?php echo base_url(); ?>clientgroup"><i
                                         class="icon-grid"></i><?php echo $this->lang->line('Client Groups'); ?></a>

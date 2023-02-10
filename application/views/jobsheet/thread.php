@@ -19,33 +19,42 @@
             <div class="message"></div>
         </div>';
         } ?>
+
         <div class="card-body">
-            <h4><?php echo $thread_info['subject'] ?> <a href="#pop_model" data-toggle="modal" data-remote="false" class="btn btn-sm btn-cyan mb-1" title="Change Status"><span class="icon-tab"></span> <?php echo $this->lang->line('Change Status') ?></a></h4>
-            <p class="card card-block"><?php echo '<strong>Created on</strong> ' . dateformat_time($thread_info['created']);
-                                        echo '<br><strong>Customer</strong> ' . $thread_info['name'];
-                                        echo '<br><strong>Status</strong> <span id="pstatus">' . $thread_info['status']
-                                        ?></span></p>
+            <h4><?php echo $thread_info['jobName'] ?> <a href="#pop_model" data-toggle="modal" data-remote="false" class="btn btn-sm btn-cyan mb-1" title="Change Status"><span class="icon-tab"></span> <?php echo $this->lang->line('Change Status') ?></a></h4>
+            <p class="card card-block">
+                <?php echo '<strong>Created on</strong> ' .
+                dateformat_time($thread_info['created_at']);
+                echo '<br><strong>Customer</strong> ' . $thread_info['cName'];
+                echo '<br><strong>Status</strong> <span id="pstatus">';
+                $temp="";
+                if($thread_info['status']==1){
+                    $temp="Completed";
+                }elseif($thread_info['status']==2){
+                    $temp="Pending";
+                }
+                elseif($thread_info['status']==3){
+                    $temp="unassigned";
+                }
+                echo $temp;
+                ?></span></p>
             <hr>
             <?php foreach ($thread_list as $row) { ?>
-
-
                 <div class="form-group row">
-
-
                     <div class="col">
-                        <div class="card-bordered shadow p-1"><?php
-                                                                if ($row['custo']) echo 'Customer <strong>' . $row['custo'] . '</strong> Replied<br><br>';
-
-                                                                if ($row['emp']) echo 'Employee <strong>' . $row['emp'] . '</strong> Replied<br><br>';
-
-                                                                echo $row['message'] . '';
-
-                                                                if ($row['attach']) echo '<br><br><strong>Attachment: </strong><a href="' . base_url('userfiles/support/' . $row['attach']) . '">' . $row['attach'] . '</a><br><br>';
-                                                                ?></div>
+                        <div class="card-bordered shadow p-1">
+                            <?php
+                            if ($row['admin']) echo 'Job manager <strong>' . $row['admin'] . '</strong> Replied<br><br>';
+                           // if ($row['custo']) echo 'Customer <strong>' . $row['custo'] . '</strong> Replied<br><br>';
+                            if ($row['emp']) echo 'Employee <strong>' . $row['emp'] . '</strong> Replied<br><br>';
+                            echo $row['message'] . '';
+                            if ($row['attach']) echo '<br><br><strong>Attachment: </strong><a href="' . base_url('userfiles/support/' . $row['attach']) . '">' . $row['attach'] . '</a><br><br>';
+                            ?>
+                            </div>
                     </div>
                 </div>
             <?php }
-            echo form_open_multipart('tickets/thread?id=' . $thread_info['id']); ?>
+            echo form_open_multipart('jobsheets/thread?id=' . $thread_info['id']); ?>
 
             <h5><?php echo $this->lang->line('Your Response') ?></h5>
             <hr>
@@ -107,29 +116,28 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title"><?php echo $this->lang->line('Change Status'); ?></h4>
+            <h4 class="modal-title"><?php echo $this->lang->line('Change Status'); ?></h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
             </div>
 
             <div class="modal-body">
                 <form id="form_model">
-
-
-                    <div class="row">
-                        <div class="col-xs-12 mb-1"><label for="pmethod"><?php echo $this->lang->line('Mark As') ?></label>
-                            <select name="status" class="form-control mb-1">
-                                <option value="Solved"><?php echo $this->lang->line('Solved'); ?></option>
-                                <option value="Processing"><?php echo $this->lang->line('Processing'); ?></option>
-                                <option value="Waiting"><?php echo $this->lang->line('Waiting'); ?></option>
-                            </select>
-
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 mb-1"><label for="pmethod"><?php echo $this->lang->line('Mark As') ?></label>
+                                <select name="status" class="form-control mb-1">
+                                    <option value="1"><?php echo $this->lang->line('Completed'); ?>Completed</option>
+                                    <option value="2"><?php echo $this->lang->line('Pending'); ?></option>
+                                    <option value="3"><?php echo $this->lang->line('unassigned'); ?>Unassigned</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-
                     <div class="modal-footer">
-                        <input type="hidden" class="form-control required" name="tid" id="invoiceid" value="<?php echo $thread_info['id'] ?>">
+                        <input type="hidden" class="form-control required" name="jid" id="invoiceid" value="<?php echo $thread_info['id'] ?>">
                         <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $this->lang->line('Close'); ?></button>
-                        <input type="hidden" id="action-url" value="tickets/update_status">
+                        <input type="hidden" id="action-url" value="jobsheets/update_status">
                         <button type="button" class="btn btn-primary" id="submit_model"><?php echo $this->lang->line('Change Status'); ?></button>
                     </div>
                 </form>

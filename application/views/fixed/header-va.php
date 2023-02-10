@@ -137,7 +137,7 @@
                                                  aria-labelledby="heading3" aria-expanded="true">
                                                 <div class="card-content">
                                                     <ul>
-                                                        
+
                                                         <li><a class="dropdown-item"
                                                                href="<?php echo base_url(); ?>settings/email"><i
                                                                         class="ft-chevron-right"></i><?php echo $this->lang->line('Email Config') ?>
@@ -176,7 +176,7 @@
                                                  aria-labelledby="heading4" aria-expanded="true">
                                                 <div class="card-content">
                                                     <ul>
-                                                       
+
                                                         <li><a class="dropdown-item"
                                                                href="<?php echo base_url(); ?>cronjob"><i
                                                                         class="ft-chevron-right"></i><?php echo $this->lang->line('Automatic Corn Job') ?>
@@ -740,6 +740,57 @@
                         </li>
                     </ul>
                 </li>
+            <?php }
+            if ($this->aauth->premission(15)||$this->aauth->premission(16)||$this->aauth->premission(17)) {
+                ?>
+                <li class="nav-item has-sub <?php if ($this->li_a == "crm") {
+                    echo ' open';
+                } ?>"><a href="#"><i
+                                class="icon-diamond"></i> <span><?php echo $this->lang->line('Jobsheet') ?>Jobsheet</span></span></a>
+                    <ul class="menu-content">
+                        <?php if($this->aauth->premission(15)){ ?>
+                        <li class="menu-item"><a href="#"><i
+                                        class="fa fa-ticket"></i> <?php //echo $this->lang->line('Clients') ?>Task Manager</a>
+                            <ul class="menu-content">
+                                <li class="menu-item"><a
+                                            href="<?php echo base_url(); ?>jobsheets/create"><?php //echo $this->lang->line('New Client') ?>Create Task</a>
+                                </li>
+                                <li class="menu-item"><a
+                                            href="<?php echo base_url(); ?>jobsheets"><?php //= $this->lang->line('Manage Clients'); ?>View Task</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <?php } ?>
+                        <?php if($this->aauth->premission(16)){ ?>
+                        <li class="menu-item"><a href="#"><i
+                                        class="fa fa-ticket"></i> <?php //echo $this->lang->line('Clients') ?>My Task</a>
+                            <ul class="menu-content">
+                                <li class="menu-item"><a
+                                            href="<?php echo base_url(); ?>jobsheets/myjobs"><?php //echo $this->lang->line('New Client') ?>Task List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <?php } ?>
+<!--
+                        <li class="menu-item">
+                            <a href="<?php echo base_url(); ?>clientgroup"><i
+                                        class="icon-grid"></i> <?php echo $this->lang->line('Client Groups'); ?></a>
+                        </li>
+                        <li class="menu-item"><a href="#"><i
+                                        class="fa fa-ticket"></i> <?php echo $this->lang->line('Support Tickets') ?></a>
+                            <ul class="menu-content">
+                                <li class="menu-item"><a
+                                            href="<?php echo base_url(); ?>tickets/?filter=unsolved"><?php echo $this->lang->line('UnSolved') ?></a>
+                                </li>
+                                <li class="menu-item"><a
+                                            href="<?php echo base_url(); ?>tickets"><?= $this->lang->line('Manage Tickets'); ?></a>
+                                </li>
+                            </ul>
+                        </li>-->
+
+                    </ul>
+                </li>
+
             <?php }
             if ($this->aauth->premission(3)) {
                 ?>

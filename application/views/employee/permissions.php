@@ -38,8 +38,8 @@
                             <th><?php echo $this->lang->line('Business Manager') ?></th>
                             <th><?php echo $this->lang->line('Business Owner') ?></th>
                             <th><?php echo $this->lang->line('Project Manager') ?></th>
-
-
+                            <th><?php echo $this->lang->line('Developer') ?>Developer</th>
+                            <th><?php echo $this->lang->line('Support') ?>Support</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -65,6 +65,10 @@
                                        class="m-1" <?php if ($row['r_5']) echo 'checked="checked"' ?>></td>
                             <td><input type="checkbox" name="r_<?= $i ?>_6"
                                        class="m-1" <?php if ($row['r_6']) echo 'checked="checked"' ?>></td>
+                            <td><input type="checkbox" name="r_<?= $i ?>_7"
+                                       class="m-1" <?php if ($row['r_7']) echo 'checked="checked"' ?>></td>
+                            <td><input type="checkbox" name="r_<?= $i ?>_8"
+                                       class="m-1" <?php if ($row['r_8']) echo 'checked="checked"' ?>></td>
                             <?php
                             echo "
                     </tr>";
@@ -82,7 +86,8 @@
                             <th><?php echo $this->lang->line('Business Manager') ?></th>
                             <th><?php echo $this->lang->line('Business Owner') ?></th>
                             <th><?php echo $this->lang->line('Project Manager') ?></th>
-
+                            <th><?php echo $this->lang->line('Developer') ?>Developer</th>
+                            <th><?php echo $this->lang->line('Support') ?>Support</th>
                         </tr>
                         </tfoot>
                     </table>

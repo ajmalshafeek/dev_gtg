@@ -1,6 +1,5 @@
 <div class="content-body">
 <style>
-
 .sla-option {
     list-style-type: none;
     padding: 0;
@@ -11,7 +10,6 @@
 .sla-option label{
     margin-right: 30px;
 }
-
 </style>
 
 <?php

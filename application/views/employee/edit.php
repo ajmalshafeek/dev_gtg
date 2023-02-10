@@ -161,7 +161,7 @@
 
                                 <div class="col-sm-5">
                                     <select name="roleid"
-                                            class="form-control margin-bottom" <? if ($user['roleid'] == 5) echo 'disabled' ?>>
+                                            class="form-control margin-bottom" <?php if ($user['roleid'] == 5) echo 'disabled' ?>>
                                         <option value="<?= $user['roleid'] ?>">--<?= user_role($user['roleid']) ?>--
                                         </option>
                                         <option value="4"><?= $this->lang->line('Business Manager') ?></option>
@@ -170,10 +170,11 @@
                                         <option value="2"><?= $this->lang->line('Sales Person') ?></option>
                                         <option value="1"><?= $this->lang->line('Inventory Manager') ?></option>
                                         <option value="-1"><?= $this->lang->line('Project Manager') ?></option>
+                                      <!--  <option value="7"><?= $this->lang->line('Developer') ?>Developer</option>
+                                        <option value="8"><?= $this->lang->line('Support') ?>Support</option>-->
                                     </select>
                                 </div>
                             </div>
-
 
                         <?php } ?>
                         <div class="form-group row">

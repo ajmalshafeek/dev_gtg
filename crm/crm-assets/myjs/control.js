@@ -430,8 +430,6 @@ function searchCS(actionurl) {
                 $("#customer-box-result").hide();
                 $("#customer").show();
 
-
-
                 $('#addCustomer').find('input:text,input:hidden').val('');
                 $("#addCustomer").modal('toggle');
 
@@ -440,13 +438,9 @@ function searchCS(actionurl) {
                 $("#statusMsg").html("<strong>" + data.status + "</strong>: " + data.message);
                 $("#statusMsg").removeClass("alert-success").addClass("alert-warning").fadeIn();
                 $("html, body").animate({scrollTop: $('#statusMsg').offset().top}, 1000);
-
             }
-
         });
     }
-
-
 }
 
 
@@ -505,10 +499,10 @@ $(document).on('click', ".check", function (e) {
 
 $(document).on('click', ".delete-object", function (e) {
     e.preventDefault();
+
     $('#object-id').val($(this).attr('data-object-id'));
     $(this).closest('tr').attr('id',$(this).attr('data-object-id'));
     $('#delete_model').modal({backdrop: 'static', keyboard: false});
-
 });
 
 $("#delete-confirm").on("click", function() {
@@ -738,7 +732,21 @@ function saveMData(o_data,action_url) {
                     $("#notify .message").html("<strong>" + data.status + "</strong>: " + data.message);
                     $("#notify").removeClass("alert-danger").addClass("alert-success").fadeIn();
                     $("html, body").scrollTop($("body").offset().top);
-                    $('#pstatus').html(data.pstatus);
+                    alert(window.location.pathname);
+                    if (action_url == "jobsheets/update_status") {
+                        var temp = "";
+                        if(data.pstatus==1){
+                            temp="Completed";
+                        }else if(data.pstatus==2){
+                            temp="Pending";
+                        }
+                        else if(data.pstatus==3){
+                            temp="unassigned";
+                        }
+                        $('#pstatus').html(temp);
+                    } else {
+                        $('#pstatus').html(data.pstatus);
+                    }
 
 
                 } else {
