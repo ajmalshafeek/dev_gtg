@@ -1,7 +1,8 @@
-<?php 
+<?php
 $lang['Date'] = "תאריך";
 $lang['Edit'] = "ערוך";
 $lang['employee_login_panel'] = "לוח כניסת עובדים";
+$lang['employee_login'] = "כניסת עובדים";
 $lang['remember_me'] = "זכור אותי";
 $lang['forgot_password'] = "שכחת את הסיסמא";
 $lang['login'] = "התחברות";
@@ -635,6 +636,7 @@ $lang['Wallet'] = "ארנק";
 $lang['Balance Added'] = "יתרה הוספה! אנא רענן את הדף!";
 $lang['Your Email'] = "האימייל שלך";
 $lang['Your Password'] = "הסיסמה שלך";
+$lang['Password'] = "סיסמה";
 $lang['Customer Login Panel'] = "לוח כניסה ללקוח";
 $lang['Enter Product name'] = "הזן שם מוצר או קוד";
 $lang['Enter Product description'] = "הזן את תיאור המוצר";

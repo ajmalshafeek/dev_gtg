@@ -532,7 +532,7 @@ text-transform: capitalize;
  background-color: #848030;
 }
 .bg-login {
-    background-image: url(../../crm-assets/images/backgrounds/bg.jpg);
+    background-image: url(../../crm-assets/images/backgrounds/background-login.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }

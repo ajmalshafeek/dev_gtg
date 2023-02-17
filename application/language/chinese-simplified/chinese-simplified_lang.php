@@ -1,7 +1,8 @@
-<?php 
+<?php
 $lang['Date'] = "日期";
 $lang['Edit'] = "编辑";
 $lang['employee_login_panel'] = "员工登录面板";
+$lang['employee_login'] = "员工登录";
 $lang['remember_me'] = "记住账号";
 $lang['forgot_password'] = "忘记密码";
 $lang['login'] = "登录";
@@ -635,6 +636,7 @@ $lang['Wallet'] = "钱包";
 $lang['Balance Added'] = "余额已添加！请刷新页面！";
 $lang['Your Email'] = "你的邮件";
 $lang['Your Password'] = "你的密码";
+$lang['Password'] = "密码";
 $lang['Customer Login Panel'] = "客户登录面板";
 $lang['Enter Product name'] = "输入产品名称或代码";
 $lang['Enter Product description'] = "输入产品说明";

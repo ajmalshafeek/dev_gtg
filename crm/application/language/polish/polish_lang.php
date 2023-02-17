@@ -1,7 +1,8 @@
-<?php 
+<?php
 $lang['Date'] = "Data";
 $lang['Edit'] = "Edytować";
 $lang['employee_login_panel'] = "Panel logowania pracowników";
+$lang['employee_login'] = "Logowanie pracownika";
 $lang['remember_me'] = "Zapamiętaj mnie";
 $lang['forgot_password'] = "Zapomniałeś hasła";
 $lang['login'] = "Zaloguj sie";
@@ -635,6 +636,7 @@ $lang['Wallet'] = "Portfel";
 $lang['Balance Added'] = "Dodano saldo! Odśwież stronę!";
 $lang['Your Email'] = "Twój email";
 $lang['Your Password'] = "Twoje hasło";
+$lang['Password'] = "Hasło";
 $lang['Customer Login Panel'] = "Panel logowania klienta";
 $lang['Enter Product name'] = "Wprowadź nazwę produktu lub kod";
 $lang['Enter Product description'] = "Wpisz opis produktu";

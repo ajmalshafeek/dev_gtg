@@ -1,7 +1,8 @@
-<?php 
+<?php
 $lang['Date'] = "Datum";
 $lang['Edit'] = "Redigera";
 $lang['employee_login_panel'] = "Anställdas inloggningspanel";
+$lang['employee_login'] = "Inloggning för anställda";
 $lang['remember_me'] = "Kom ihåg mig";
 $lang['forgot_password'] = "Glömt ditt lösenord";
 $lang['login'] = "Logga in";
@@ -635,6 +636,7 @@ $lang['Wallet'] = "Plånbok";
 $lang['Balance Added'] = "Balans tillagd! Uppdatera sidan!";
 $lang['Your Email'] = "Din email";
 $lang['Your Password'] = "Ditt lösenord";
+$lang['Password'] = "Lösenord";
 $lang['Customer Login Panel'] = "Kundinloggningspanel";
 $lang['Enter Product name'] = "Ange produktnamn eller kod";
 $lang['Enter Product description'] = "Ange produktbeskrivning";

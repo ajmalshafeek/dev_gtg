@@ -1,7 +1,8 @@
-<?php 
+<?php
 $lang['Date'] = "datum";
 $lang['Edit'] = "Upravit";
 $lang['employee_login_panel'] = "Panel přihlášení zaměstnanců";
+$lang['employee_login'] = "Přihlášení zaměstnance";
 $lang['remember_me'] = "Zapamatuj si mě";
 $lang['forgot_password'] = "Zapomenuté heslo";
 $lang['login'] = "Přihlásit se";
@@ -635,6 +636,7 @@ $lang['Wallet'] = "Peněženka";
 $lang['Balance Added'] = "Zůstatek přidán! Aktualizujte prosím stránku!";
 $lang['Your Email'] = "Tvůj e-mail";
 $lang['Your Password'] = "Vaše heslo";
+$lang['Password'] = "Heslo";
 $lang['Customer Login Panel'] = "Panel přihlášení zákazníka";
 $lang['Enter Product name'] = "Zadejte název produktu nebo kód";
 $lang['Enter Product description'] = "Zadejte popis produktu";

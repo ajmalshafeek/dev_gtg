@@ -52,6 +52,59 @@
     <script src="<?php echo assets_url('crm-assets/js/icheck.min.js'); ?>"></script>
     <script src="<?php echo assets_url('crm-assets/js/jquery.form-validator.min.js'); ?>"></script>
     <script src="<?php echo assets_url('crm-assets/js/custom.js'); ?>"></script>
+<style>
+.header-navbar.navbar-semi-dark .navbar-header {
+     background: #219A8F;
+}
+.navbar-semi-dark .navbar-header {
+    background: #219A8F;
+}
+.main-menu.menu-dark .navigation {
+    background: #219A8F;
+}
+.main-menu.menu-dark {
+    color: #dcdcdc;
+    background: #219A8F;
+}
+.main-menu.menu-dark .navigation > li.hover > a, .main-menu.menu-dark .navigation > li:hover > a, .main-menu.menu-dark .navigation > li.active > a {
+    color: #c3c3c3;
+    background-color: #24436D;
+}
+.main-menu.menu-dark .navigation > li.open > a {
+    color: #c3c3c3;
+    background: #24436D;
+}
+
+.header-navbar .navbar-header .navbar-brand {
+    padding: 2px 0px;
+    width: inherit;
+}
+body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-brand {
+       padding: 2px 0px;
+    width: inherit;
+}
+@media only screen and (min-width: 768px) {
+    ul.nav.navbar-nav.flex-row {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0px;
+    }
+    .custom-size{width:100%}
+    a.navbar-brand.nav-link {
+    text-align: center;
+    }
+    .header-navbar .navbar-header .navbar-brand {
+        padding: 7px 0px;
+        width: inherit;
+    }
+    body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-brand {
+       padding: 7px 0px;
+       width: inherit;
+}
+}
+
+</style>
 </head>
 <body data-open="click" data-menu="vertical-menu" data-col="2-columns"
       class="vertical-layout vertical-menu 2-columns  fixed-navbar  menu-expanded">
@@ -64,7 +117,7 @@
                 <li class="nav-item mobile-menu hidden-md-up float-xs-left"><a
                             class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="icon-menu5 font-large-1"></i></a>
                 </li>
-                <li class="nav-item"><a href="<?php echo base_url() ?>" class="navbar-brand nav-link"><img
+                <li class="nav-item custom-size"><a href="<?php echo base_url() ?>" class="navbar-brand nav-link"><img
                                 alt="branding logo"
                                 src="<?php echo substr_replace(base_url(), '', -4); ?>userfiles/theme/logo-header.png"
                                 data-expand="<?php echo substr_replace(base_url(), '', -4); ?>userfiles/theme/logo-header.png"

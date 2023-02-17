@@ -1,7 +1,8 @@
-<?php 
+<?php
 $lang['Date'] = "tarih";
 $lang['Edit'] = "Düzenle";
 $lang['employee_login_panel'] = "Çalışan Giriş Paneli";
+$lang['employee_login'] = "Çalışan Girişi";
 $lang['remember_me'] = "Beni hatırla";
 $lang['forgot_password'] = "Parolanızı mı unuttunuz";
 $lang['login'] = "Oturum aç";
@@ -635,6 +636,7 @@ $lang['Wallet'] = "Cüzdan";
 $lang['Balance Added'] = "Bakiye Eklendi! Lütfen Sayfayı Yenileyin!";
 $lang['Your Email'] = "E-posta adresiniz";
 $lang['Your Password'] = "Şifreniz";
+$lang['Password'] = "Parola";
 $lang['Customer Login Panel'] = "Müşteri Giriş Paneli";
 $lang['Enter Product name'] = "Ürün Adı veya Kodunu Girin";
 $lang['Enter Product description'] = "Ürün açıklamasını girin";

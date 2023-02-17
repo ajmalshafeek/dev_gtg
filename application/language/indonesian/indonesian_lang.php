@@ -1,7 +1,8 @@
-<?php 
+<?php
 $lang['Date'] = "Tanggal";
 $lang['Edit'] = "Edit";
 $lang['employee_login_panel'] = "Panel Login Karyawan";
+$lang['employee_login'] = "Login Karyawan";
 $lang['remember_me'] = "Ingat saya";
 $lang['forgot_password'] = "Tidak ingat kata sandi";
 $lang['login'] = "Gabung";
@@ -635,6 +636,7 @@ $lang['Wallet'] = "Dompet";
 $lang['Balance Added'] = "Saldo ditambahkan! Silakan Perbarui Halaman!";
 $lang['Your Email'] = "Email mu";
 $lang['Your Password'] = "Kata sandi Anda";
+$lang['Password'] = "Kata sandi";
 $lang['Customer Login Panel'] = "Panel Login Pelanggan";
 $lang['Enter Product name'] = "Masukkan Nama Produk atau Kode";
 $lang['Enter Product description'] = "Masukkan deskripsi Produk";

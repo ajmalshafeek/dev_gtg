@@ -1,7 +1,8 @@
-<?php 
+<?php
 $lang['Date'] = "Свидание";
 $lang['Edit'] = "редактировать";
 $lang['employee_login_panel'] = "Панель входа сотрудника";
+$lang['employee_login'] = "Логин сотрудника";
 $lang['remember_me'] = "Запомни меня";
 $lang['forgot_password'] = "Забыл пароль";
 $lang['login'] = "Авторизоваться";
@@ -635,6 +636,7 @@ $lang['Wallet'] = "Бумажник";
 $lang['Balance Added'] = "Баланс добавлен! Пожалуйста, обновите страницу!";
 $lang['Your Email'] = "Ваш адрес электронной почты";
 $lang['Your Password'] = "Твой пароль";
+$lang['Password'] = "Пароль";
 $lang['Customer Login Panel'] = "Панель входа клиента";
 $lang['Enter Product name'] = "Введите название продукта или код";
 $lang['Enter Product description'] = "Введите описание продукта";

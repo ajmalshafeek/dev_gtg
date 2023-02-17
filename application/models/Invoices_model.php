@@ -41,8 +41,6 @@ class Invoices_model extends CI_Model
             $this->db->where('gtg_invoices.eid', $eid);
         }
         if ($p) {
-
-
             if ($this->aauth->get_user()->loc) {
                 $this->db->where('gtg_invoices.loc', $this->aauth->get_user()->loc);
             } elseif (!BDATA) {

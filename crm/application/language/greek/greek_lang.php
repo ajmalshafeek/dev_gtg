@@ -1,7 +1,8 @@
-<?php 
+<?php
 $lang['Date'] = "Ημερομηνία";
 $lang['Edit'] = "Επεξεργασία";
 $lang['employee_login_panel'] = "Πίνακας σύνδεσης εργαζομένων";
+$lang['employee_login'] = "Σύνδεση Υπαλλήλου";
 $lang['remember_me'] = "Θυμήσου με";
 $lang['forgot_password'] = "Ξεχάσατε τον κωδικό";
 $lang['login'] = "Σύνδεση";
@@ -635,6 +636,7 @@ $lang['Wallet'] = "Πορτοφόλι";
 $lang['Balance Added'] = "Προστέθηκε υπόλοιπο! Ανανεώστε τη σελίδα!";
 $lang['Your Email'] = "Η διεύθυνση του ηλεκτρονικού σου ταχυδρομείου";
 $lang['Your Password'] = "Ο κωδικός σας";
+$lang['Password'] = "Κωδικός πρόσβασης";
 $lang['Customer Login Panel'] = "Πίνακας σύνδεσης πελάτη";
 $lang['Enter Product name'] = "Εισαγάγετε όνομα προϊόντος ή κωδικό";
 $lang['Enter Product description'] = "Εισαγάγετε την περιγραφή προϊόντος";

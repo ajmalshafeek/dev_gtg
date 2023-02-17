@@ -1,5 +1,59 @@
 <link rel="stylesheet" type="text/css"
       href="<?= assets_url() ?>app-assets/<?= LTR ?>/core/menu/menu-types/vertical-menu-modern.css">
+<style>
+.main-menu.menu-dark .navigation > li.hover > a, .main-menu.menu-dark .navigation > li:hover > a, .main-menu.menu-dark .navigation > li.active > a {
+    color: #FFFFFF;
+    background-color: #7CBCBA;
+}
+.navbar-semi-dark .navbar-header {
+    background: #219A8F !important;
+}
+.main-menu.menu-dark .navigation {
+    background: #219A8F !important;
+}
+.main-menu.menu-dark {
+    color: #FFFFFF !important;
+    background: #219A8F !important;
+}
+.main-menu.menu-dark .navigation > li.open {
+    border-left: 4px solid #E2F6EF;
+}
+.main-menu.menu-dark .navigation > li.open > a {
+    color: #FFFFFF !important;
+    background: #219A8F !important;
+}
+.main-menu.menu-dark .navigation > li > ul {
+    background: #219A8F;
+}
+.main-menu.menu-dark  ul li a{
+color: #FFFFFF !important;
+}
+ .main-menu.menu-dark .navigation > li.hover > a, .main-menu.menu-dark .navigation > li.active > a {
+    color: #FFFFFF !important;
+    background-color: #7CBCBA !important;
+}
+.main-menu.menu-dark .navigation > li.open .hover > a {
+    background: #1aada0;
+}
+.main-menu.menu-dark .navigation > li ul .open .hover > a {
+    background: #1aada0;
+}
+@media only screen and (min-width: 768px) {
+    ul.nav.navbar-nav.flex-row {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0px;
+    }
+
+}
+.header-navbar .navbar-header .navbar-brand {
+    padding: 10px 0px;
+}
+body.vertical-layout.vertical-menu-modern.menu-collapsed .navbar .navbar-brand {
+    padding: 10px 0px;
+}
+</style>
 </head>
 <body class="vertical-layout vertical-menu-modern 2-columns   menu-expanded fixed-navbar" data-open="click"
       data-menu="vertical-menu-modern" data-col="2-columns">
@@ -14,8 +68,8 @@
                 <li class="nav-item mobile-menu d-md-none mr-auto"><a
                             class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i
                                 class="ft-menu font-large-1"></i></a></li>
-                <li class="nav-item"><a class="navbar-brand" href="<?= base_url() ?>dashboard/"><img
-                                class="brand-logo ml-1" alt="logo"
+            <li class="nav-item"><a class="navbar-brand" href="<?= base_url() ?>dashboard/">
+             <img class="brand-logo ml-1" alt="logo"
                                 src="<?php echo base_url(); ?>userfiles/theme/logo-header.png">
                     </a></li>
                 <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse"
@@ -1100,10 +1154,12 @@
                         <a href="<?php echo base_url(); ?>employee/departments"><i
                                     class="icon-folder"></i> <?php echo $this->lang->line('Departments'); ?></a>
                     </li>
+                    <?php if ($this->aauth->premission(18)) { ?>
                     <li class="menu-item">
                         <a href="<?php echo base_url(); ?>employee/payroll"><i
                                     class="icon-notebook"></i> <?php echo $this->lang->line('Payroll'); ?></a>
                     </li>
+                    <?php } ?>
 
                 </ul>
                 </li>

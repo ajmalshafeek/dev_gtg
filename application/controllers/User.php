@@ -20,8 +20,6 @@ class User extends CI_Controller
 
     public function index()
     {
-
-
         if ($this->aauth->is_loggedin()) {
             redirect('/dashboard/', 'refresh');
         }
@@ -31,9 +29,9 @@ class User extends CI_Controller
         if ($this->input->get('e')) {
             $data['response'] = 'Invalid username or password!';
         }
-        $this->load->view('user/header');
+       // $this->load->view('user/header');
         $this->load->view('user/index', $data);
-        $this->load->view('user/footer');
+       // $this->load->view('user/footer');
     }
 
     public function checklogin()
@@ -59,7 +57,6 @@ class User extends CI_Controller
         if (!$this->aauth->is_loggedin()) {
             redirect('/user/', 'refresh');
         }
-
 
         $head['usernm'] = $this->aauth->get_user()->username;
         $head['title'] = $head['usernm'] . ' Profile';

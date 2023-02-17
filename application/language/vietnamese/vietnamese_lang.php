@@ -1,7 +1,8 @@
-<?php 
+<?php
 $lang['Date'] = "Ngày";
 $lang['Edit'] = "Biên tập";
 $lang['employee_login_panel'] = "Bảng đăng nhập nhân viên";
+$lang['employee_login'] = "Nhân viên đăng nhập";
 $lang['remember_me'] = "Nhớ tôi";
 $lang['forgot_password'] = "Quên mật khẩu";
 $lang['login'] = "Đăng nhập";
@@ -635,6 +636,7 @@ $lang['Wallet'] = "Ví tiền";
 $lang['Balance Added'] = "Đã thêm số dư! Hãy làm mới trang!";
 $lang['Your Email'] = "Email của bạn";
 $lang['Your Password'] = "Mật khẩu của bạn";
+$lang['Password'] = "Mật khẩu";
 $lang['Customer Login Panel'] = "Bảng đăng nhập khách hàng";
 $lang['Enter Product name'] = "Nhập tên sản phẩm hoặc mã";
 $lang['Enter Product description'] = "Nhập mô tả sản phẩm";

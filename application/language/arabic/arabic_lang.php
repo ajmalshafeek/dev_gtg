@@ -1,7 +1,8 @@
-<?php 
+<?php
 $lang['Date'] = "تاريخ";
 $lang['Edit'] = "تعديل";
 $lang['employee_login_panel'] = "لوحة تسجيل دخول الموظف";
+$lang['employee_login'] = "دخول الموظف";
 $lang['remember_me'] = "تذكرنى";
 $lang['forgot_password'] = "هل نسيت كلمة المرور";
 $lang['login'] = "تسجيل الدخول";
@@ -635,6 +636,7 @@ $lang['Wallet'] = "محفظة نقود";
 $lang['Balance Added'] = "تمت إضافة الرصيد! يرجى تحديث الصفحة!";
 $lang['Your Email'] = "بريدك الالكتروني";
 $lang['Your Password'] = "كلمتك السرية";
+$lang['Password'] = "شعار";
 $lang['Customer Login Panel'] = "لوحة تسجيل دخول العميل";
 $lang['Enter Product name'] = "أدخل اسم المنتج أو الرمز";
 $lang['Enter Product description'] = "أدخل وصف المنتج";

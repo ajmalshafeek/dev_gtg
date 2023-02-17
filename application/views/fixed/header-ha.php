@@ -1152,11 +1152,12 @@
                             <a class="dropdown-item" href="<?php echo base_url(); ?>employee/departments"><i
                                         class="icon-folder"></i><?php echo $this->lang->line('Departments'); ?></a>
                         </li>
+                        <?php if ($this->aauth->premission(18)) { ?>
                         <li data-menu="">
                             <a class="dropdown-item" href="<?php echo base_url(); ?>employee/payroll"><i
                                         class="icon-notebook"></i><?php echo $this->lang->line('Payroll'); ?></a>
                         </li>
-
+                        <?php } ?>
                     </ul>
                 </li>
             <?php }

@@ -1,7 +1,8 @@
-<?php 
+<?php
 $lang['Date'] = "Data";
 $lang['Edit'] = "Editați | ×";
 $lang['employee_login_panel'] = "Panoul de conectare a angajaților";
+$lang['employee_login'] = "Autentificarea angajaților";
 $lang['remember_me'] = "Amintește-ți de mine";
 $lang['forgot_password'] = "Ați uitat parola";
 $lang['login'] = "Autentificare";
@@ -635,6 +636,7 @@ $lang['Wallet'] = "Portofel";
 $lang['Balance Added'] = "Sold adăugat! Vă rugăm să actualizați pagina!";
 $lang['Your Email'] = "Email-ul tau";
 $lang['Your Password'] = "Parola ta";
+$lang['Password'] = "Parolă";
 $lang['Customer Login Panel'] = "Panoul de conectare a clienților";
 $lang['Enter Product name'] = "Introduceți numele sau codul produsului";
 $lang['Enter Product description'] = "Introduceți descrierea produsului";

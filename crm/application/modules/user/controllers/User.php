@@ -44,9 +44,9 @@ class User extends CI_Controller
         if (isset($_SESSION['user_details'])) {
             redirect(base_url() . 'invoices', 'refresh');
         }
-        $this->load->view('header');
+        //$this->load->view('header');
         $this->load->view('login', $data);
-        $this->load->view('footer');
+        //$this->load->view('footer');
     }
 
     /**

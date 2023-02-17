@@ -1,7 +1,8 @@
-<?php 
+<?php
 $lang['Date'] = "Datum";
 $lang['Edit'] = "Bewerk";
 $lang['employee_login_panel'] = "Inlogvenster voor werknemers";
+$lang['employee_login'] = "Medewerker Login";
 $lang['remember_me'] = "Onthoud me";
 $lang['forgot_password'] = "Wachtwoord vergeten";
 $lang['login'] = "Log in";
@@ -635,6 +636,7 @@ $lang['Wallet'] = "Portemonnee";
 $lang['Balance Added'] = "Balans toegevoegd! Gelieve de pagina te vernieuwen!";
 $lang['Your Email'] = "Jouw email";
 $lang['Your Password'] = "Uw wachtwoord";
+$lang['Password'] = "Wachtwoord";
 $lang['Customer Login Panel'] = "Klant login paneel";
 $lang['Enter Product name'] = "Voer Productnaam of Code in";
 $lang['Enter Product description'] = "Voer Productbeschrijving in";
