@@ -109,8 +109,11 @@ color:#fff !important;
 <div class="container my-5 align-middle" style="box-shadow: 1px 4px 20px -5px #545454ed;border-radius: 10px;">
     <div class="row" style="background-color:#E2F6EF;padding:15px;border-radius: 10px 10px 0px 0px;">
         <div class="col-5 text-left">
-            <img src="<?php echo substr_replace(base_url(), '', -4); ?>userfiles/company/<?php echo $this->config->item('logo'); ?>"
+            <!--<img src="<?php echo substr_replace(base_url(), '', -4); ?>userfiles/company/<?php echo $this->config->item('logo'); ?>"
+            alt="logo" style="max-height: 10rem;  max-width: 10rem;">-->
+<img src="<?php echo substr_replace(base_url(), '', -4); ?>userfiles/theme/logo-header.png"
             alt="logo" style="max-height: 10rem;  max-width: 10rem;">
+
         </div>
         <div class="col-7 text-right">
             <h5 class="logtxt" style="color:#24436D; padding: 15px 0px;

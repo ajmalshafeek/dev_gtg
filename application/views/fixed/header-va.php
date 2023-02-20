@@ -38,6 +38,7 @@ color: #FFFFFF !important;
 .main-menu.menu-dark .navigation > li ul .open .hover > a {
     background: #1aada0;
 }
+
 @media only screen and (min-width: 768px) {
     ul.nav.navbar-nav.flex-row {
         width: fit-content;
@@ -48,12 +49,37 @@ color: #FFFFFF !important;
 
 }
 .header-navbar .navbar-header .navbar-brand {
-    padding: 10px 0px;
+    padding: 8px 0px;
+    margin: 0px !important;
 }
 body.vertical-layout.vertical-menu-modern.menu-collapsed .navbar .navbar-brand {
-    padding: 10px 0px;
+    padding: 8px 0px;
+}
+.brand-logo {
+    max-height: 40px;
+    margin: 0px !important;
+margin-left:-5px !important;
 }
 </style>
+<script>
+$(document).ready(function() {
+$('.ft-menu').on('click', function(){
+if($('.vertical-menu-modern').hasClass('menu-collapsed')){
+$('.vertical-menu-modern').removeClass('menu-collapsed');
+$('.vertical-menu-modern').addClass('menu-expanded');
+$(".brand-logo").attr('src','<?php echo base_url('userfiles/theme/logo-header.png')?>');
+$('.nav-menu-main').addClass('is-active');
+}else{
+$('.vertical-menu-modern').removeClass('menu-expanded');
+$('.vertical-menu-modern').addClass('menu-collapsed');
+$(".brand-logo").attr('src','<?php echo base_url('userfiles/theme/logo-header-icon.png')?>');
+$('.nav-menu-main').removeClass('is-active');
+}
+
+});
+
+});
+</script>
 </head>
 <body class="vertical-layout vertical-menu-modern 2-columns   menu-expanded fixed-navbar" data-open="click"
       data-menu="vertical-menu-modern" data-col="2-columns">

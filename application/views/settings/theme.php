@@ -88,12 +88,33 @@
                     <img alt="image" id="dpic" class="col-4"
                          src="<?php echo base_url('userfiles/theme/logo-header.png') . '?t=' . rand(5, 999) ?>">
                 </div>
-
                 <hr>
                 <p><label for="fileupload">Change Theme Logo </label><input
                             id="fileupload" type="file"
                             name="files[]"></p>
-                <code>Theme logo is different from company logo. Recommended Theme logo size is 80x80px. Only png
+                <code>Theme logo is different from company logo. Recommended Theme logo size is 200x80px. Only png
+                    files allowed. Clear browser cache after uploading.</code>
+            </div>
+        </form>
+    </div>
+<div class="card card-block">
+
+        <form method="post" id="product_action" class="form-horizontal" enctype="multipart/form-data">
+            <div class="card-body">
+
+                <h5><?php echo $this->lang->line('Theme') ?> Icon</h5>
+                <hr>
+
+
+                <div class="ibox-content no-padding border-left-right">
+                    <img alt="imageicon" id="ipic" class="col-4"
+                         src="<?php echo base_url('userfiles/theme/logo-header-icon.png') . '?t=' . rand(5, 999) ?>">
+                </div>
+                <hr>
+                <p><label for="iconupload">Change Theme Logo </label><input
+                            id="iconupload" type="file"
+                            name="files[]"></p>
+                <code>Recommended Theme icon size is 80x80px. Only png
                     files allowed. Clear browser cache after uploading.</code>
             </div>
         </form>
@@ -111,9 +132,8 @@
 <script>
     $(function () {
         'use strict';
-        var url = '<?php echo base_url() ?>settings/themelogo';
         $('#fileupload').fileupload({
-            url: url,
+            url: '<?php echo base_url() ?>settings/themelogo',
             dataType: 'json',
             formData: {'<?=$this->security->get_csrf_token_name()?>': crsf_hash},
             done: function (e, data) {
@@ -133,6 +153,28 @@
         }).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
     });
+
+    $(function () {
+        'use strict';
+        $('#iconupload').fileupload({
+            url: '<?php echo base_url() ?>settings/themeicon',
+            dataType: 'json',
+            formData: {'<?=$this->security->get_csrf_token_name()?>': crsf_hash},
+            done: function (e, data) {
+                $("#ipic").attr('src', '<?php echo base_url() ?>userfiles/theme/' + data.result + '?' + new Date().getTime());
+            },
+            progressall: function (e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                $('#progress .progress-bar').css(
+                    'width',
+                    progress + '%'
+                );
+            }
+        }).prop('disabled', !$.support.fileInput)
+            .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+    });
+
 
 </script>
 

@@ -83,6 +83,15 @@ body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-brand {
        padding: 2px 0px;
     width: inherit;
 }
+.header-navbar .navbar-container ul.nav li a.menu-toggle {
+    display: block;
+}
+.navbar-header {
+    padding: 2px !important;
+}
+.height-50{
+height: 40px !important;
+}
 @media only screen and (min-width: 768px) {
     ul.nav.navbar-nav.flex-row {
         width: fit-content;
@@ -105,6 +114,29 @@ body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-brand {
 }
 
 </style>
+
+<script>
+$(document).ready(function() {
+
+  /*  $('.custom-size').bind('resize', function(){
+
+        alert($('.custom-size').width());
+
+        if($('.custom-size').width()>30){
+            $('.vertical-menu').removeClass('menu-collapsed');
+            $('.vertical-menu').addClass('menu-expanded');
+            $(".brand-logo").attr('src','<?php echo base_url('../userfiles/theme/logo-header.png')?>');
+            $('.nav-menu-main').addClass('is-active');
+        }else{
+            $('.vertical-menu').removeClass('menu-expanded');
+            $('.vertical-menu').addClass('menu-collapsed');
+            $(".brand-logo").attr('src','<?php echo base_url('../userfiles/theme/logo-header-icon.png')?>');
+            $('.nav-menu-main').removeClass('is-active');
+        }
+    });
+*/
+});
+</script>
 </head>
 <body data-open="click" data-menu="vertical-menu" data-col="2-columns"
       class="vertical-layout vertical-menu 2-columns  fixed-navbar  menu-expanded">
@@ -114,14 +146,15 @@ body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-brand {
     <div class="navbar-wrapper">
         <div class="navbar-header">
             <ul class="nav navbar-nav">
-                <li class="nav-item mobile-menu hidden-md-up float-xs-left"><a
-                            class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="icon-menu5 font-large-1"></i></a>
+                <li class="nav-item mobile-menu hidden-md-up float-xs-left"><a href="#"
+                            class="nav-link nav-menu-main menu-toggle hidden-xs">
+                            <i class="icon-menu5 font-large-1"></i></a>
                 </li>
                 <li class="nav-item custom-size"><a href="<?php echo base_url() ?>" class="navbar-brand nav-link"><img
                                 alt="branding logo"
                                 src="<?php echo substr_replace(base_url(), '', -4); ?>userfiles/theme/logo-header.png"
                                 data-expand="<?php echo substr_replace(base_url(), '', -4); ?>userfiles/theme/logo-header.png"
-                                data-collapse="<?php echo substr_replace(base_url(), '', -4); ?>userfiles/theme/logo-header.png"
+                                data-collapse="<?php echo substr_replace(base_url(), '', -4); ?>userfiles/theme/logo-header-icon.png"
                                 class="brand-logo height-50"></a></li>
                 <li class="nav-item hidden-md-up float-xs-right"><a data-toggle="collapse" data-target="#navbar-mobile"
                                                                     class="nav-link open-navbar-container"><i
@@ -131,9 +164,9 @@ body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-brand {
         <div class="navbar-container content container-fluid">
             <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item hidden-sm-down"><a class="nav-link nav-menu-main menu-toggle hidden-xs"><i
-                                    class="icon-menu5"> </i></a></li>
-                    <li class="nav-item hidden-sm-down"><a href="#" class="nav-link nav-link-expand"><i
+                    <li class="nav-item hidden-sm-down ft-menu"><a class="nav-link nav-menu-main menu-toggle hidden-xs ft-menu"><i
+                                    class="icon-menu5 ft-menu"> </i></a></li>
+                    <li class="nav-item hidden-sm-down"><a href="#" class="nav-link nav-link-expand "><i
                                     class="icon icon-expand2"></i></a></li>
 
                 </ul>

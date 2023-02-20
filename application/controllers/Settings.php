@@ -262,6 +262,13 @@ class Settings extends CI_Controller
         ));
     }
 
+    public function themeicon()
+    {
+        $this->load->library("uploadhandler", array(
+            'accept_file_types' => '/\.(png)$/i', 'upload_dir' => FCPATH . 'userfiles/theme/', 'name' => 'logo-header-icon.png'
+        ));
+    }
+
     public function tickets()
     {
         $this->load->model('plugins_model', 'plugins');

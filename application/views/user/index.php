@@ -107,7 +107,7 @@ color:#fff !important;
 <div class="container my-5" style="box-shadow: 1px 4px 20px -5px #545454ed;border-radius: 10px;">
     <div class="row" style="background-color:#E2F6EF;padding:15px;border-radius: 10px 10px 0px 0px;">
         <div class="col-5 text-left">
-            <img src="<?php echo base_url('userfiles/company/') . $this->config->item('logo'); ?>"
+            <img src="<?php echo base_url()?>userfiles/theme/logo-header.png"
             alt="logo" style="max-height: 10rem;  max-width: 10rem;">
         </div>
         <div class="col-7 text-right">
