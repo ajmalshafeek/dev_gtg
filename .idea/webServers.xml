@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5a8efd3e-3877-45bf-ae22-6618740c61ad" name="erp-dev: 156.67.222.140" url="http://156.67.222.140">
+        <fileTransfer rootFolder="/public_html/erp-dev" host="156.67.222.140" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
