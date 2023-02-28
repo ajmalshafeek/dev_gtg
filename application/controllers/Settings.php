@@ -125,13 +125,13 @@ class Settings extends CI_Controller
 
             $this->load->library('ultimatemailer');
 
-            $test = $this->ultimatemailer->bin_send($host, $port, $auth, $auth_type, $username, $password, $sender, 'Raj Cr Test', $sender, 'Raj Cr Test', 'Raj Cr SMTP Test', 'Hi, This is a  Raj Cr SMTP Test! Working Perfectly', false, '');
+            $test = $this->ultimatemailer->bin_send($host, $port, $auth, $auth_type, $username, $password, $sender, 'Krish Test', $sender, 'Krish Test', 'Krish SMTP Test', 'Hi, This is a  Krish SMTP Test! Working Perfectly', false, '');
 
             if ($test) {
                 $this->settings->update_smtp($host, $port, $auth, $auth_type, $username, $password, $sender);
             } else {
                 echo json_encode(array('status' => 'Error', 'message' =>
-                '<br>Your SMTP settings are invalid. If you think it is a correct configuration, please try with different ports like 465, 587.<br> Still not working please contact to your hosting provider. <br> Free SMTP services are generally blocked by many hosting providers.<br>Please do not send support request to Raj Cr Support Team, we can not help in this matter because in the application email system is working perfectly.'));
+                '<br>Your SMTP settings are invalid. If you think it is a correct configuration, please try with different ports like 465, 587.<br> Still not working please contact to your hosting provider. <br> Free SMTP services are generally blocked by many hosting providers.<br>Please do not send support request to Krish Support Team, we can not help in this matter because in the application email system is working perfectly.'));
             }
         } else {
 

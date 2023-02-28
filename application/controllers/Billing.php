@@ -342,7 +342,7 @@ class Billing extends CI_Controller
         }
 
     }
-
+ 
     public function printstockreturn()
     {
         if (!$this->input->get()) {
@@ -450,6 +450,9 @@ class Billing extends CI_Controller
                 break;
             case 8:
                 $fname = 'razor';
+                break;
+            case 9:
+                $fname = 'ipay88';
                 break;
             default :
                 $fname = 'stripe';

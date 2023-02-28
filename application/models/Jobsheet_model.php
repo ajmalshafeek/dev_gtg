@@ -97,7 +97,6 @@ class Jobsheet_model extends CI_Model
 
         foreach ($this->doccolumn_search as $item) // loop column
         {
-
             $search = $this->input->post('search');
         $value='';
         if(!empty($search))
