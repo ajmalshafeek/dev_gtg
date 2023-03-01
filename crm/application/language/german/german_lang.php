@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "Tausend Separator";
 $lang['Decimal Place'] = "Dezimalstelle";
 $lang['Note: Payment Processing'] = "Hinweis: Für einige Gateways kann eine Bearbeitungsgebühr anfallen.";
 $lang['Payment'] = "Zahlung";
+$lang['Pay Bill'] = "Rechnung bezahlen";
 $lang['Processing Fee'] = "Bearbeitungsgebühr";
 $lang['based on live market'] = "basierend auf Live-Markt";
 $lang['Payment Currency client'] = "Zahlungswährung für Ihren Kunden";

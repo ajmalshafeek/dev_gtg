@@ -180,13 +180,13 @@
                                     $rate = $row['tax'] / 2;
                                     echo '<tr>
 <th scope="row">' . $c . '</th>
-                            <td>' . $row['product'] . '</td> 
-                            <td>' . $row['code'] . '</td>                          
+                            <td>' . $row['product'] . '</td>
+                            <td>' . $row['code'] . '</td>
                             <td>' . amountExchange($row['price'], $invoice['multi'], $invoice['loc']) . '</td>
                              <td>' . amountFormat_general($row['qty']) . $row['unit'] . '</td>
                               <td>' . amountExchange($row['totaldiscount'], $invoice['multi'], $invoice['loc']) . ' (' . amountFormat_s($row['discount']) . $this->lang->line($invoice['format_discount']) . ')</td>
                             <td>' . amountExchange($gst, $invoice['multi'], $invoice['loc']) . ' (' . amountFormat_s($rate) . '%)</td>
-                             <td>' . amountExchange($gst, $invoice['multi'], $invoice['loc']) . ' (' . amountFormat_s($rate) . '%)</td>                           
+                             <td>' . amountExchange($gst, $invoice['multi'], $invoice['loc']) . ' (' . amountFormat_s($rate) . '%)</td>
                             <td>' . amountExchange($row['subtotal'], $invoice['multi'], $invoice['loc']) . '</td>
                         </tr>';
 
@@ -201,9 +201,9 @@
                                             $z_custom_fields .= $row['name'] . ': ' . $row['data'] . '<br>';
                                         }
 
-                                        echo '<tr>  
+                                        echo '<tr>
                             <td colspan="7">' . $z_custom_fields . '&nbsp;</td>
-							
+
                         </tr>';
                                     }
                                     $c++;
@@ -235,13 +235,13 @@
 
                                         echo '<tr>
 <th scope="row">' . $c . '</th>
-                            <td>' . $row['product'] . '</td> 
-                            <td>' . $row['code'] . '</td>                          
+                            <td>' . $row['product'] . '</td>
+                            <td>' . $row['code'] . '</td>
                             <td>' . amountExchange($row['price'], $invoice['multi'], $invoice['loc']) . '</td>
                              <td>' . amountFormat_general($row['qty']) . $row['unit'] . '</td>
                               <td>' . amountExchange($row['totaldiscount'], $invoice['multi'], $invoice['loc']) . ' (' . amountFormat_s($row['discount']) . $this->lang->line($invoice['format_discount']) . ')</td>
                             <td>' . amountExchange($row['totaltax'], $invoice['multi'], $invoice['loc']) . ' (' . amountFormat_s($row['tax']) . '%)</td>
-                                            
+
                             <td>' . amountExchange($row['subtotal'], $invoice['multi'], $invoice['loc']) . '</td>
                         </tr>';
 
@@ -256,9 +256,9 @@
                                                 $z_custom_fields .= $row['name'] . ': ' . $row['data'] . '<br>';
                                             }
 
-                                            echo '<tr>  
+                                            echo '<tr>
                             <td colspan="7">' . $z_custom_fields . '&nbsp;</td>
-							
+
                         </tr>';
                                         }
                                         $c++;
@@ -286,7 +286,7 @@
                                         $sub_t += $row['price'] * $row['qty'];
                                         echo '<tr>
 <th scope="row">' . $c . '</th>
-                            <td>' . $row['product'] . '</td>                           
+                            <td>' . $row['product'] . '</td>
                             <td>' . amountExchange($row['price'], $invoice['multi'], $invoice['loc']) . '</td>
                              <td>' . amountFormat_general($row['qty']) . $row['unit'] . '</td>
                             <td>' . amountExchange($row['totaltax'], $invoice['multi'], $invoice['loc']) . ' (' . amountFormat_s($row['tax']) . '%)</td>
@@ -305,9 +305,9 @@
                                                 $z_custom_fields .= $row['name'] . ': ' . $row['data'] . '<br>';
                                             }
 
-                                            echo '<tr>  
+                                            echo '<tr>
                             <td colspan="7">' . $z_custom_fields . '&nbsp;</td>
-							
+
                         </tr>';
                                         }
                                         $c++;

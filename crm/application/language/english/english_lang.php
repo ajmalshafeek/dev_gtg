@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "Thousand Separator";
 $lang['Decimal Place'] = "Decimal Place";
 $lang['Note: Payment Processing'] = "Note: Payment Processing fee may apply for some gateways.";
 $lang['Payment'] = "Payment";
+$lang['Pay Bill'] = "Pay Bill";
 $lang['Processing Fee'] = "Processing Fee";
 $lang['based on live market'] = "based on live market";
 $lang['Payment Currency client'] = "Payment Currency for your client";

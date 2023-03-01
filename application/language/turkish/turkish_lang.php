@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "Binlik Ayırıcı";
 $lang['Decimal Place'] = "Ondalık basamak";
 $lang['Note: Payment Processing'] = "Not: Bazı ağ geçitleri için Ödeme İşleme ücreti uygulanabilir.";
 $lang['Payment'] = "Ödeme";
+$lang['Pay Bill'] = "Fatura Ödeme";
 $lang['Processing Fee'] = "İşlem ücreti";
 $lang['based on live market'] = "canlı pazara dayalı";
 $lang['Payment Currency client'] = "Müşteriniz için Ödeme Para Birimi";

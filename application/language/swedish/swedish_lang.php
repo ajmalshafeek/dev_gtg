@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "Tusen separator";
 $lang['Decimal Place'] = "Decimal plats";
 $lang['Note: Payment Processing'] = "Obs: Betalningsbearbetningsavgift kan tillkomma för vissa gateways.";
 $lang['Payment'] = "Betalning";
+$lang['Pay Bill'] = "Betala räkning";
 $lang['Processing Fee'] = "Administrativ avgift";
 $lang['based on live market'] = "baserat på levande marknad";
 $lang['Payment Currency client'] = "Betalningsvaluta för din klient";

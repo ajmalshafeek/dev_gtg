@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "Separator de mii";
 $lang['Decimal Place'] = "Locul zecimal";
 $lang['Note: Payment Processing'] = "Notă: Taxa de procesare a plăților se poate aplica pentru unele gateway-uri.";
 $lang['Payment'] = "Plată";
+$lang['Pay Bill'] = "Plătiți factura";
 $lang['Processing Fee'] = "Taxa de procesare";
 $lang['based on live market'] = "bazat pe piața live";
 $lang['Payment Currency client'] = "Plata monedei pentru clientul dvs.";

@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "ہزار الگ کرنے والا";
 $lang['Decimal Place'] = "اعشاریہ";
 $lang['Note: Payment Processing'] = "نوٹ: کچھ گیٹ ویز کے لئے ادائیگی کی پروسیسنگ فیس کا اطلاق ہوسکتا ہے۔";
 $lang['Payment'] = "ادائیگی";
+$lang['Pay Bill'] = "ادائیگی کا بل";
 $lang['Processing Fee'] = "پروسیسنگ فیس";
 $lang['based on live market'] = "براہ راست مارکیٹ پر مبنی";
 $lang['Payment Currency client'] = "آپ کے مؤکل کے لئے ادائیگی کرنسی";

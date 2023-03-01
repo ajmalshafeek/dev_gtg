@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "អ្នកបំបែកមួយពាន់"
 $lang['Decimal Place'] = "ខ្ទង់ទសភាគ";
 $lang['Note: Payment Processing'] = "សម្គាល់ៈថ្លៃដំណើរការដំណើរការបង់ប្រាក់អាចអនុវត្តសម្រាប់ច្រកចេញចូលមួយចំនួន។";
 $lang['Payment'] = "ការទូទាត់";
+$lang['Pay Bill'] = "សេចក្តី ព្រាង ច្បាប់ ប្រាក់ ខែ";
 $lang['Processing Fee'] = "ថ្លៃដំណើរការ";
 $lang['based on live market'] = "ផ្អែកលើទីផ្សារផ្សាយផ្ទាល់";
 $lang['Payment Currency client'] = "រូបិយប័ណ្ណទូទាត់ប្រាក់សម្រាប់អតិថិជនរបស់អ្នក";

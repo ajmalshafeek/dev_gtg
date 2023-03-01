@@ -212,6 +212,16 @@ class Billing_model extends CI_Model
         return $query->row_array();
     }
 
+    public function pay_settings()
+    {
+
+        $this->db->select('*');
+        $this->db->from('gtg_system');
+        $this->db->where('id', 1);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
 
     public function payment_settings($id, $enable, $bank)
     {

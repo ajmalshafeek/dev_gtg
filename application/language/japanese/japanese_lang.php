@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "千の区切り";
 $lang['Decimal Place'] = "小数位";
 $lang['Note: Payment Processing'] = "注：一部のゲートウェイでは、支払い処理料金が適用される場合があります。";
 $lang['Payment'] = "支払い";
+$lang['Pay Bill'] = "請求書の支払い";
 $lang['Processing Fee'] = "手数料";
 $lang['based on live market'] = "ライブマーケットに基づく";
 $lang['Payment Currency client'] = "クライアントの支払い通貨";

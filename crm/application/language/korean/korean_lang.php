@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "천 단위 구분자";
 $lang['Decimal Place'] = "소수점";
 $lang['Note: Payment Processing'] = "참고 : 일부 게이트웨이에는 지불 처리 수수료가 적용될 수 있습니다.";
 $lang['Payment'] = "지불";
+$lang['Pay Bill'] = "청구서 지불";
 $lang['Processing Fee'] = "처리 수수료";
 $lang['based on live market'] = "라이브 마켓을 기반으로";
 $lang['Payment Currency client'] = "고객의 결제 통화";

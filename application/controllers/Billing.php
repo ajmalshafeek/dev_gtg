@@ -459,6 +459,15 @@ class Billing extends CI_Controller
                 break;
         }
         $online_pay = $this->billing->online_pay_settings();
+        $pay_settings = $this->billing->pay_settings();
+        $data['pay_setting']=$pay_settings;
+
+        if(isset($_GET)){
+
+        }
+        elseif(isset($_POST)){
+
+        }
         $data['gateway'] = $this->billing->gateway($data['gid']);
         if ($online_pay['enable'] == 1) {
             $this->load->view('billing/header');

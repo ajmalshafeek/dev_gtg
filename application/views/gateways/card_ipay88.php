@@ -5,7 +5,7 @@
 
 
 <?php
-print_r($invoice);
+
 $rming = $invoice['total'] - $invoice['pamnt'];
 if ($itype == 'rinv' && $invoice['status'] == 'due') {
     $rming = $invoice['total'];
@@ -21,8 +21,6 @@ if ($row['surcharge'] > 0) {
     $fee = '( ' . amountExchange($rming, $invoice['multi'], $invoice['loc']) . '+' . amountFormat_s($row['surcharge']) . ' %)';
 } else {
     $fee = '';
-
-
 }
 ?>
 <script src="https://js.stripe.com/v3/"></script>
@@ -36,7 +34,10 @@ if ($row['surcharge'] > 0) {
 
     <div class="card-header">
         <h1>iPay88 Payment Page</h1>
-
+<?php print_r($invoice);
+echo "<br><br><br><br>";print_r($_SESSION);
+echo "<br><br><br><br>";print_r($pay_setting);
+?>
     </div>
 
     <div class="card-body">
@@ -50,9 +51,9 @@ if ($row['surcharge'] > 0) {
     action="https://payment.ipay88.com.my/ePayment/entry.asp">
         <INPUT type="hidden" name="MerchantCode"  value="M00003">
         <INPUT type="hidden" name="PaymentId"     value="">
-        <INPUT type="hidden" name="RefNo"         value="<?php echo $invoice['tid']; ?>">
+        <INPUT type="hidden" name="RefNo"         value="<?php echo $pay_setting['prefix'].$invoice['tid']; ?>">
         <INPUT type="hidden" name="Amount"        value="<?php echo $invoice['total']; ?>">
-        <INPUT type="hidden" name="Currency"      value="MYR">
+        <INPUT type="hidden" name="Currency"      value="<?php echo $pay_setting['currency']; ?>">
         <INPUT type="text" name="ProdDesc" class="form-control"     value="" placeholder="Description" require="required">
         <INPUT type="hidden" name="UserName"      value="<?php echo $invoice['name']; ?>">
         <INPUT type="hidden" name="UserEmail"     value="<?php echo $invoice['email']; ?>">
@@ -65,7 +66,7 @@ if ($row['surcharge'] > 0) {
         <INPUT type="hidden" name="ResponseURL"
         value="http://localhost/dev_gtg/billing/card">
         <INPUT type="hidden" name="BackendURL"
-        value="http://localhost/dev_gtg/billing/card">
+        value="">
         <INPUT type="submit" class="form-control text-white mt-2" style="background-color: orange;" value="Proceed with Payment" name="Submit">
     </FORM>
 
@@ -154,7 +155,7 @@ if ($row['surcharge'] > 0) {
             clientSecret: data.clientSecret
         };
     };
-
+/*
     var handleAction = function (clientSecret) {
         stripe.handleCardAction(clientSecret).then(function (data) {
             if (data.error) {
@@ -196,7 +197,7 @@ if ($row['surcharge'] > 0) {
             }
         });
     };
-
+*/
     /*
      * Collect card details and pay for the order
      */

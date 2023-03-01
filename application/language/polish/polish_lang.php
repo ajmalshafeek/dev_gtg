@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "Tysiąc separatorów";
 $lang['Decimal Place'] = "Miejsce po przecinku";
 $lang['Note: Payment Processing'] = "Uwaga: w przypadku niektórych bram mogą obowiązywać opłaty za przetwarzanie płatności.";
 $lang['Payment'] = "Zapłata";
+$lang['Pay Bill'] = "Zapłać rachunek";
 $lang['Processing Fee'] = "Opłata manipulacyjna";
 $lang['based on live market'] = "w oparciu o rynek na żywo";
 $lang['Payment Currency client'] = "Waluta płatności dla twojego klienta";

@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "Χίλια διαχωριστικό";
 $lang['Decimal Place'] = "Δεκαδικό μέρος";
 $lang['Note: Payment Processing'] = "Σημείωση: Ενδέχεται να ισχύει χρέωση επεξεργασίας πληρωμών για ορισμένες πύλες.";
 $lang['Payment'] = "Πληρωμή";
+$lang['Pay Bill'] = "Πληρωμή λογαριασμού";
 $lang['Processing Fee'] = "Αμοιβή επεξεργασίας";
 $lang['based on live market'] = "με βάση τη ζωντανή αγορά";
 $lang['Payment Currency client'] = "Νόμισμα πληρωμής για τον πελάτη σας";

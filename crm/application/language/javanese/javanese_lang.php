@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "Ewu Separator";
 $lang['Decimal Place'] = "Panggonan Decimal";
 $lang['Note: Payment Processing'] = "Cathetan: Ragad Pangolahan Pembayaran bisa uga njaluk sawetara gapura.";
 $lang['Payment'] = "Mbayar";
+$lang['Pay Bill'] = "Bayar Bill";
 $lang['Processing Fee'] = "Yuran Processing";
 $lang['based on live market'] = "adhedhasar pasar urip";
 $lang['Payment Currency client'] = "Dhuwit Pembayaran kanggo klien sampeyan";

@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "हजार विभाजक";
 $lang['Decimal Place'] = "दशमलव स्थान";
 $lang['Note: Payment Processing'] = "नोट: कुछ गेटवे के लिए भुगतान प्रसंस्करण शुल्क लागू हो सकता है।";
 $lang['Payment'] = "भुगतान";
+$lang['Pay Bill'] = "बिल का भुगतान करें";
 $lang['Processing Fee'] = "प्रक्रमण संसाधन शुल्क";
 $lang['based on live market'] = "लाइव बाजार पर आधारित है";
 $lang['Payment Currency client'] = "अपने ग्राहक के लिए भुगतान मुद्रा";

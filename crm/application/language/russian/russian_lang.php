@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "Разделитель тысяч";
 $lang['Decimal Place'] = "Десятичное место";
 $lang['Note: Payment Processing'] = "Примечание. Для некоторых шлюзов может взиматься плата за обработку платежей.";
 $lang['Payment'] = "Оплата";
+$lang['Pay Bill'] = "Оплатить счет";
 $lang['Processing Fee'] = "Разовая комиссия";
 $lang['based on live market'] = "на основе живого рынка";
 $lang['Payment Currency client'] = "Валюта оплаты для вашего клиента";

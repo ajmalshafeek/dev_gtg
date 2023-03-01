@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "الف فاصل";
 $lang['Decimal Place'] = "منزلة عشرية";
 $lang['Note: Payment Processing'] = "ملاحظة: قد يتم تطبيق رسوم معالجة الدفع لبعض البوابات.";
 $lang['Payment'] = "دفع";
+$lang['Pay Bill'] = "دفع الفاتورة";
 $lang['Processing Fee'] = "كلفة المعالجة";
 $lang['based on live market'] = "على أساس السوق الحية";
 $lang['Payment Currency client'] = "عملة الدفع لعميلك";

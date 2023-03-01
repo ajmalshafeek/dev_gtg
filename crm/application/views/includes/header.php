@@ -246,6 +246,10 @@ $(document).ready(function() {
             } ?>">
                 <a href="<?php echo base_url(); ?>user/address"> <i class="icon-address-book"></i><span class="menu-title"> <?php echo $this->lang->line('Address') ?> </span></a>
             </li>
+            <li class="nav-item <?php if($this->uri->segment(1) == "paybill") echo "active"; ?>">
+                <a href="<?php echo base_url("paybill"); ?>"><i class="icon-qrcode"></i>
+                    <span><?php echo $this->lang->line('Pay Bill'); ?></span></a>
+            </li>
 
 
         </ul>

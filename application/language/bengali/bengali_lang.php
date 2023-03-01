@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "হাজার বিভাজক";
 $lang['Decimal Place'] = "দশমিক স্থান";
 $lang['Note: Payment Processing'] = "দ্রষ্টব্য: পেমেন্ট প্রসেসিং ফি কিছু গেটওয়ের জন্য আবেদন করতে পারে।";
 $lang['Payment'] = "পারিশ্রমিক";
+$lang['Pay Bill'] = "বিল পরিশোধ করুন";
 $lang['Processing Fee'] = "প্রসেসিং ফি";
 $lang['based on live market'] = "লাইভ মার্কেটের উপর ভিত্তি করে";
 $lang['Payment Currency client'] = "আপনার ক্লায়েন্টের জন্য প্রদানের মুদ্রা";

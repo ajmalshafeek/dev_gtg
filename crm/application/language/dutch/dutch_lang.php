@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "Duizend scheidingsteken";
 $lang['Decimal Place'] = "Decimaal";
 $lang['Note: Payment Processing'] = "Opmerking: voor sommige gateways kunnen er kosten in rekening worden gebracht voor de betalingsverwerking.";
 $lang['Payment'] = "Betaling";
+$lang['Pay Bill'] = "Factuur betalen";
 $lang['Processing Fee'] = "Verwerkingskosten";
 $lang['based on live market'] = "gebaseerd op live markt";
 $lang['Payment Currency client'] = "Betalingsvaluta voor uw klant";

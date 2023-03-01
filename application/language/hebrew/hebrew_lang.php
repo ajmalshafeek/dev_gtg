@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "אלף מפריד";
 $lang['Decimal Place'] = "מקום עשרוני";
 $lang['Note: Payment Processing'] = "הערה: עלול לשלם שערים מסוימים בתשלום עיבוד תשלום.";
 $lang['Payment'] = "תשלום";
+$lang['Pay Bill'] = "שלם חשבון";
 $lang['Processing Fee'] = "עמלת עיבוד";
 $lang['based on live market'] = "מבוסס על שוק חי";
 $lang['Payment Currency client'] = "תשלום מטבע עבור הלקוח שלך";

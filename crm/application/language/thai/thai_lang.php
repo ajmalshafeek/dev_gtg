@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "ตัวคั่นหลักพัน";
 $lang['Decimal Place'] = "ตำแหน่งทศนิยม";
 $lang['Note: Payment Processing'] = "หมายเหตุ: อาจมีค่าธรรมเนียมการดำเนินการชำระเงินสำหรับบางเกตเวย์";
 $lang['Payment'] = "การชำระเงิน";
+$lang['Pay Bill'] = "จ่ายบิล";
 $lang['Processing Fee'] = "ค่าธรรมเนียมการดำเนินการ";
 $lang['based on live market'] = "ขึ้นอยู่กับตลาดสด";
 $lang['Payment Currency client'] = "สกุลเงินการชำระเงินสำหรับลูกค้าของคุณ";

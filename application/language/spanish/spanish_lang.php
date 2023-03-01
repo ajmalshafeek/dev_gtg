@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "Mil separadores";
 $lang['Decimal Place'] = "Decimal";
 $lang['Note: Payment Processing'] = "Nota: Se puede aplicar una tarifa de procesamiento de pago para algunas pasarelas.";
 $lang['Payment'] = "Pago";
+$lang['Pay Bill'] = "Pagar factura";
 $lang['Processing Fee'] = "Cuota de procesamiento";
 $lang['based on live market'] = "basado en el mercado en vivo";
 $lang['Payment Currency client'] = "Moneda de pago para su cliente";

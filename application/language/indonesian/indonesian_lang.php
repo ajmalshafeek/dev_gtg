@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "Pemisah Seribu";
 $lang['Decimal Place'] = "Tempat desimal";
 $lang['Note: Payment Processing'] = "Catatan: Biaya Pemrosesan Pembayaran mungkin berlaku untuk beberapa gateway.";
 $lang['Payment'] = "Pembayaran";
+$lang['Pay Bill'] = "Bayar Tagihan";
 $lang['Processing Fee'] = "Biaya pengolahan";
 $lang['based on live market'] = "berdasarkan pasar hidup";
 $lang['Payment Currency client'] = "Mata Uang Pembayaran untuk klien Anda";

@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "Hàng ngàn máy tách";
 $lang['Decimal Place'] = "Vị trí thập phân";
 $lang['Note: Payment Processing'] = "Lưu ý: Phí xử lý thanh toán có thể áp dụng cho một số cổng.";
 $lang['Payment'] = "Thanh toán";
+$lang['Pay Bill'] = "Thanh toán hóa đơn";
 $lang['Processing Fee'] = "Phí xử lý";
 $lang['based on live market'] = "dựa trên thị trường trực tiếp";
 $lang['Payment Currency client'] = "Tiền tệ thanh toán cho khách hàng của bạn";

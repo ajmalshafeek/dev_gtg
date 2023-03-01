@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "千位分隔符";
 $lang['Decimal Place'] = "小数位";
 $lang['Note: Payment Processing'] = "注意：某些网关可能需要支付手续费。";
 $lang['Payment'] = "付款";
+$lang['Pay Bill'] = "支付账单";
 $lang['Processing Fee'] = "手续费";
 $lang['based on live market'] = "根据现场市场";
 $lang['Payment Currency client'] = "客户的付款货币";

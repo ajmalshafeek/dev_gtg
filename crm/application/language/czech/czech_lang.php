@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "Tisíce oddělovač";
 $lang['Decimal Place'] = "Desetinné místo";
 $lang['Note: Payment Processing'] = "Poznámka: Na některé brány se může vztahovat poplatek za zpracování platby.";
 $lang['Payment'] = "Způsob platby";
+$lang['Pay Bill'] = "Zaplatit účet";
 $lang['Processing Fee'] = "Poplatek za zpracování";
 $lang['based on live market'] = "založené na živém trhu";
 $lang['Payment Currency client'] = "Měna platby pro vašeho klienta";

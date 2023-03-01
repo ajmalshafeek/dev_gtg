@@ -579,6 +579,7 @@ $lang['Thousand Saparator'] = "Libong Separator";
 $lang['Decimal Place'] = "Lugar ng Decimal";
 $lang['Note: Payment Processing'] = "Tandaan: Ang bayad sa Pagproseso ng Pagbabayad ay maaaring mag-aplay para sa ilang mga gateway.";
 $lang['Payment'] = "Pagbabayad";
+$lang['Pay Bill'] = "Magbayad ng Bill";
 $lang['Processing Fee'] = "Pagproseso ng Bayad";
 $lang['based on live market'] = "batay sa live market";
 $lang['Payment Currency client'] = "Pagbabayad ng Pera para sa iyong kliyente";
