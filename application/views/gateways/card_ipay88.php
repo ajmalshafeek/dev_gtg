@@ -64,7 +64,7 @@ echo "<br><br><br><br>";print_r($pay_setting);
         <INPUT type="hidden" name="Signature"
         value="b81af9c4048b0f6c447129f0f5c0eec8d67cbe19eec26f2cdaba5df4f4dc5a28">
         <INPUT type="hidden" name="ResponseURL"
-        value="http://localhost/dev_gtg/billing/card">
+        value="<?php base_url('billing/card'); ?>">
         <INPUT type="hidden" name="BackendURL"
         value="">
         <INPUT type="submit" class="form-control text-white mt-2" style="background-color: orange;" value="Proceed with Payment" name="Submit">
