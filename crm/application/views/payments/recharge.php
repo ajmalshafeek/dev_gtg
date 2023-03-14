@@ -12,10 +12,11 @@
 
                 </div>
                 <div class="card-block">
-                    <form method="get" action="<?php echo substr(base_url(),0,-4) ?>billing/recharge">
+                       <form method="get" action="<?php echo substr(base_url(),0,-4) ?>billing/recharge">
                         <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                         <input type="hidden" value="<?=base64_encode($this->session->userdata('user_details')[0]->cid) ?>" name="id">
 
+                    <form>
                         <div class="form-group row">
 
                             <label class="col-sm-2 col-form-label"
@@ -26,11 +27,14 @@
                                        class="form-control margin-bottom " name="amount">
                             </div>
                         </div>
+                        <?php /* temprary hide
                          <div class="form-group row ">
+                             <?php  print_r($gateway); ?>
                                         <label for="gid" class="col-sm-2 col-form-label"><?php echo $this->lang->line('Payment Gateways') ?></label> <div class="col-sm-3">
                                         <select class="form-control" name="gid"><?php
 
                                             $surcharge_t = false;
+
                                             foreach ($gateway as $row) {
                                                 $cid = $row['id'];
                                                 $title = $row['name'];
@@ -45,7 +49,9 @@
                                             ?>
                                         </select>
 
-                                    </div>   </div>
+
+                                    </div>
+                         </div> */ ?>
 
                         <div class="form-group row">
 
@@ -53,7 +59,7 @@
                                    for="name"></label>
 
                             <div class="col-sm-3">
-                                <input type="submit" class="btn btn-lg btn-success">
+                                <input type="submit" class="btn btn-lg btn-success" value="Add Money to Wallet">
                             </div>
                         </div>
 

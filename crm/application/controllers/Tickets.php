@@ -16,6 +16,8 @@ class Tickets extends CI_Controller
         $this->captcha = $this->general->public_key()->captcha;
         $this->user_id = isset($this->session->get_userdata()['user_details'][0]->id) ? $this->session->get_userdata()['user_details'][0]->users_id : '1';
 
+        $this->load->model('User_model');
+
     }
 
 
@@ -27,7 +29,11 @@ class Tickets extends CI_Controller
 
         $head['usernm'] = '';
         $head['title'] = 'Support Tickets';
-        $this->load->view('includes/header', $head);
+        is_login();
+        $userid = $this->session->userdata('user_details')[0]->users_id;
+        $data['user_data'] = $this->User_model->get_users($userid);
+        $head['user_data']=$data['user_data'];
+        $this->load->view('includes/header',$head);
         if ($this->ticket->ticket()->key1) {
             $this->load->view('support/tickets');
         } else {
@@ -86,7 +92,11 @@ class Tickets extends CI_Controller
         $head['usernm'] = '';
         $head['title'] = 'Add Support Reply';
 
-        $this->load->view('includes/header', $head);
+        is_login();
+        $userid = $this->session->userdata('user_details')[0]->users_id;
+        $data['user_data'] = $this->User_model->get_users($userid);
+        $head['user_data']=$data['user_data'];
+        $this->load->view('includes/header',$head);
 
         if ($this->input->post('content')) {
 
@@ -175,11 +185,7 @@ class Tickets extends CI_Controller
 
             $data['thread_info'] = $this->ticket->thread_info($thread_id);
             $data['thread_list'] = $this->ticket->thread_list($thread_id);
-
-
             $this->load->view('support/thread', $data);
-
-
         }
         $this->load->view('includes/footer');
 
@@ -200,7 +206,11 @@ class Tickets extends CI_Controller
         $head['usernm'] = '';
         $head['title'] = 'Add Support Ticket';
 
-        $this->load->view('includes/header', $head);
+        is_login();
+        $userid = $this->session->userdata('user_details')[0]->users_id;
+        $data['user_data'] = $this->User_model->get_users($userid);
+        $head['user_data']=$data['user_data'];
+        $this->load->view('includes/header',$head);
 
         if ($this->input->post('content')) {
             if ($this->captcha) {

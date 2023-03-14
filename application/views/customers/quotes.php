@@ -45,14 +45,17 @@
                                    class="btn btn-blue-grey btn-md mr-1 mb-1 btn-block  btn-lighten-1"><i
                                             class="fa fa-money"></i> <?php echo $this->lang->line('View Transactions') ?>
                                 </a>
+                                <?php /* temprary hide
                                 <a href="<?php echo base_url('customers/statement?id=' . $details['id']) ?>"
                                    class="btn btn-primary btn-block btn-md mr-1 mb-1 btn-lighten-1"><i
                                             class="fa fa-briefcase"></i> <?php echo $this->lang->line('Account Statements') ?>
-                                </a>
+                                </a> */ ?>
                                 <a href="<?php echo base_url('customers/quotes?id=' . $details['id']) ?>"
                                    class="btn btn-purple btn-md mr-1 mb-1 btn-block btn-lighten-1"><i
                                             class="fa fa-quote-left"></i> <?php echo $this->lang->line('Quotes') ?>
-                                </a> <a href="<?php echo base_url('customers/projects?id=' . $details['id']) ?>"
+                                </a>
+                                <?php /* temprary hide
+                                <a href="<?php echo base_url('customers/projects?id=' . $details['id']) ?>"
                                         class="btn btn-vimeo btn-md mr-1 mb-1 btn-block btn-lighten-2"><i
                                             class="fa fa-bullhorn"></i> <?php echo $this->lang->line('Projects') ?>
                                 </a>
@@ -60,6 +63,7 @@
                                    class="btn btn-flickr btn-md mr-1 mb-1 btn-block btn-lighten-1"><i
                                             class="fa fa-calendar-check-o"></i> <?php echo $this->lang->line('Subscriptions') ?>
                                 </a>
+                                */ ?>
                                 <a href="<?php echo base_url('customers/notes?id=' . $details['id']) ?>"
                                    class="btn btn-github btn-block btn-md mr-1 mb-1 btn-lighten-1"><i
                                             class="fa fa-book"></i> <?php echo $this->lang->line('Notes') ?>

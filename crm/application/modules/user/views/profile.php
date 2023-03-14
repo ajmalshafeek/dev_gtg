@@ -24,10 +24,8 @@
                             <div class="box-body box-profile">
                                 <div class="col-md-4">
                                     <div class="pic_size" id="image-holder">
-
                                         <img class="height-200 setpropileam"
-                                             src="../../userfiles/customers/<?php $profile_pic = $user_data[0]->picture;
-                                             echo isset($profile_pic) ? $profile_pic : 'user.png'; ?>"
+                                             src="../../userfiles/customers/<?php echo isset($user_data[0]->profile_pic) ? $user_data[0]->profile_pic : 'user.png'; ?>"
                                              alt="User profile picture">
                                     </div>
                                     <br>
@@ -41,24 +39,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <h4>Personal Information:</h4>
-
-
                                     <hr>
-
-
                                     <div class="form-group has-feedback clear-both">
-
                                         <h5><?php echo(isset($user_data[0]->name) ? $user_data[0]->name : ''); ?></h5>
-
                                     </div>
-
-
                                     <div class="form-group has-feedback clear-both">
-
                                         <h5><?php echo(isset($user_data[0]->email) ? $user_data[0]->email : ''); ?></h5>
                                     </div>
-
-
                                     <hr>
                                     <h5>Change Password:</h5>
                                     <div class="form-group has-feedback">

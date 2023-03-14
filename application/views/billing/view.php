@@ -15,12 +15,10 @@
                         <?php $rming = $invoice['total'] - $invoice['pamnt'];
                         if ($invoice['status'] != 'canceled') { ?>
                             <div class="row">
-
-
                                 <div class="col-md-8">
                                     <div class="form-group mt-2"><?php echo $this->lang->line('Payment') ?>:
                                         <?php if ($online_pay['enable'] == 1) {
-                                            echo '<a class="btn btn-success btn-min-width mr-1" href="#' . base_url('billing/card?id=' . $invoice['iid'] . '&itype=inv&token=' . $token) . '" data-toggle="modal" data-target="#paymentCard"><i class="fa fa-cc"></i> Credit Card</a> ';
+                                            echo '<a class="btn btn-success btn-min-width mr-1" href="#' . base_url('billing/card?id=' . $invoice['iid'] . '&itype=inv&token=' . $token) . '" data-toggle="modal" data-target="#paymentCard"><i class="fa fa-cc"></i> Online Payment</a> ';
                                         }
                                         if ($online_pay['bank'] == 1) {
                                             echo '<a class="btn btn-cyan btn-min-width mr-1"
@@ -29,13 +27,13 @@
                                         }
 
                                         if ($this->aauth->is_loggedin()) {
-
                                             echo '<a class="btn btn-warning  mr-1"
                                                     href = "' . base_url('invoices/view?id=' . $invoice['iid']) . '" role = "button" ><i
                                                         class="fa fa-backward" ></i > </a >';
                                         }
                                         ?>
-
+                                        <a href="#" class="btn btn-large btn-amber mr-1" title="Wallet"
+                                           data-toggle="modal" data-target="#part_payment" ><i class="fa fa-wallet"></i> <?php echo $this->lang->line('Wallet') ?></a>
                                     </div>
                                 </div>
 
@@ -75,10 +73,8 @@
                              class="img-responsive p-1 m-b-2" style="max-height: 120px;">
                         <p class="text-muted"><?php echo $this->lang->line('From') ?></p>
 
-
                         <ul class="px-0 list-unstyled">
                             <?php
-
                             echo '<li class="text-bold-800">' . $loc['cname'] . '</li><li>' . $loc['address'] . '</li><li>' . $loc['city'] . ',</li><li>' . $loc['region'] . ',' . $loc['country'] . ' -  ' . $loc['postbox'] . '</li><li>' . $this->lang->line('Phone') . ' : ' . $loc['phone'] . '</li><li> ' . $this->lang->line('Email') . ' : ' . $loc['email'] ?>
                             </li>
                         </ul>
@@ -525,6 +521,67 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+
+
+    <!-- Modal HTML Wallet -->
+    <div id="part_payment" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h4 class="modal-title"><?php echo $this->lang->line('Payment Confirmation') ?></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <form class="payment" action="<?php echo base_url(); ?>/billing/walletpay" method="post" >
+                        <div class="row">
+                            <div class="col"><label
+                                        for="rmpay"><?php echo $this->lang->line('Payment') ?></label>
+                                    <input type="text" class="form-control" placeholder="Total Amount" name="amount"
+                                           id="rmpay"
+                                           value="<?= amountExchange_s($rming, 0, $invoice['loc']) ?>">
+                                    <div class="form-control-position">
+                                        <?php echo $this->config->item('currency') ?>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col mb-1">
+                                <input type="hidden" name="pmethod" class="form-control mb-1" value="Balance" />
+                                <label for="account"><?php echo $this->lang->line('Wallet') ?> <?php echo $this->lang->line('Balance') ?></label>
+                                <input type="text" name="account" class="form-control mb-1" value="<?php echo $customers['balance']; ?>" readonly />
+                           </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-1"><label
+                                        for="shortnote"><?php echo $this->lang->line('Note') ?></label>
+                                <input type="text" class="form-control"
+                                       name="shortnote" placeholder="Short note"
+                                       value="Payment for invoice #<?php echo $invoice['tid'] ?>"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" class="form-control required"
+                                   name="id" id="invoiceid" value="<?php echo $invoice['iid'] ?>">
+                            <input type="hidden" class="form-control required"
+                                   name="tid" id="invoiceid" value="<?php echo $invoice['tid'] ?>">
+                            <input type="hidden" class="form-control required"
+                                   name="multi" id="invoiceid" value="<?php echo $invoice['multi'] ?>">
+                            <input type="hidden" class="form-control required"
+                                   name="loc" id="invoiceid" value="<?php echo $invoice['loc'] ?>">
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal"><?php echo $this->lang->line('Close') ?></button>
+                            <input type="hidden" name="cid" value="<?php echo $invoice['cid'] ?>">
+                            <input type="hidden" name="cname" value="<?php echo $invoice['name'] ?>">
+                            <button type="submit" class="btn btn-primary"
+                                    id=""  <?php if($rming>$customers['balance']){echo "disabled"; } ?>><?php echo $this->lang->line('Make Payment'); ?></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 <?php } ?>

@@ -53,6 +53,19 @@ class Invoices_model extends CI_Model
         return $query->row_array();
     }
 
+    public function invoice_table_details($tid, $eid = '', $p = true)
+    {
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where('tid', $tid);
+        if ($eid) {
+            $this->db->where('eid', $eid);
+        }
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
+
     public function invoice_products($id)
     {
 
@@ -115,7 +128,6 @@ class Invoices_model extends CI_Model
 
     public function invoice_transactions($id)
     {
-
         $this->db->select('*');
         $this->db->from('gtg_transactions');
         $this->db->where('tid', $id);

@@ -12,13 +12,19 @@ class Payments extends CI_Controller
         if (!is_login()) {
             redirect(base_url() . 'user/profile', 'refresh');
         }
+
+        $this->load->model('User_model');
     }
 
     //invoices list
     public function index()
     {
         $head['title'] = "Payments";
-        $this->load->view('includes/header');
+        is_login();
+        $userid = $this->session->userdata('user_details')[0]->users_id;
+        $data['user_data'] = $this->User_model->get_users($userid);
+        $head['user_data']=$data['user_data'];
+        $this->load->view('includes/header',$head);
         $this->load->view('payments/payments');
         $this->load->view('includes/footer');
     }
@@ -30,7 +36,11 @@ class Payments extends CI_Controller
         $data['activity'] = $this->payments->activity($this->session->userdata('user_details')[0]->cid);
         $data['gateway'] = $this->payments->gateway_list('Yes');
 
-        $this->load->view('includes/header');
+        is_login();
+        $userid = $this->session->userdata('user_details')[0]->users_id;
+        $data['user_data'] = $this->User_model->get_users($userid);
+        $head['user_data']=$data['user_data'];
+        $this->load->view('includes/header',$head);
         $this->load->view('payments/recharge', $data);
         $this->load->view('includes/footer');
     }

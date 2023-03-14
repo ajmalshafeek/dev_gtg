@@ -14,6 +14,7 @@ class Projects Extends CI_Controller
             redirect(base_url() . 'user/profile', 'refresh');
         }
 
+        $this->load->model('User_model');
     }
 
     //todo section
@@ -22,7 +23,12 @@ class Projects Extends CI_Controller
     {
         $head['title'] = "Payments";
         $data['totalt'] = $this->projects->project_count_all();
-        $this->load->view('includes/header');
+
+        is_login();
+        $userid = $this->session->userdata('user_details')[0]->users_id;
+        $data['user_data'] = $this->User_model->get_users($userid);
+        $head['user_data']=$data['user_data'];
+        $this->load->view('includes/header',$head);
         $this->load->view('projects/index', $data);
         $this->load->view('includes/footer');
 
@@ -55,7 +61,11 @@ class Projects Extends CI_Controller
 
             $data['invoices'] = $explore['invoices'];
 
-            $this->load->view('includes/header');
+            is_login();
+            $userid = $this->session->userdata('user_details')[0]->users_id;
+            $data['user_data'] = $this->User_model->get_users($userid);
+            $head['user_data']=$data['user_data'];
+            $this->load->view('includes/header',$head);
             $this->load->view('projects/explore', $data);
             $this->load->view('includes/footer');
         } else {
@@ -78,7 +88,11 @@ class Projects Extends CI_Controller
             // $data['customer']=$explore['customer'];
             $data['invoices'] = $explore['invoices'];
 
-            $this->load->view('includes/header');
+            is_login();
+            $userid = $this->session->userdata('user_details')[0]->users_id;
+            $data['user_data'] = $this->User_model->get_users($userid);
+            $head['user_data']=$data['user_data'];
+            $this->load->view('includes/header',$head);
             $this->load->view('projects/explore', $data);
             $this->load->view('includes/footer');
         }

@@ -14,6 +14,7 @@ class User extends CI_Controller
         $this->user_id = isset($this->session->get_userdata()['user_details'][0]->id) ? $this->session->get_userdata()['user_details'][0]->users_id : '1';
         $this->load->library("Common");
         $this->load->library("Custom");
+
     }
 
     /**
@@ -290,10 +291,11 @@ class User extends CI_Controller
     {
         is_login();
         if (!isset($id) || $id == '') {
-            $id = $this->session->userdata('user_details')[0]->users_id;
+            $userid = $this->session->userdata('user_details')[0]->users_id;
         }
-        $data['user_data'] = $this->User_model->get_users($id);
-        $this->load->view('includes/header');
+        $data['user_data'] = $this->User_model->get_users($userid);
+        $head['user_data']=$data['user_data'];
+        $this->load->view('includes/header',$head);
         $this->load->view('profile', $data);
         $this->load->view('includes/footer');
     }
@@ -423,6 +425,10 @@ class User extends CI_Controller
             }
             $data['profile_pic'] = $profile_pic;
             $data2['picture'] = $profile_pic;
+
+            if(empty($this->security->get_csrf_hash())){
+                unset($data['ci_csrf_token']);
+            }
             $this->User_model->updateRow('users', 'users_id', $id, $data);
             $this->User_model->updateRow('gtg_customers', 'id', $this->session->userdata('user_details')[0]->cid, $data2);
 
@@ -757,7 +763,10 @@ class User extends CI_Controller
         } else if ($this->input->get('email', true) && $this->input->get('token', true) != '') {
             $data['code'] = $this->input->get('token', true);
             $data['email'] = $this->input->get('email', true);
-            $this->load->view('header');
+            $userid = $this->session->userdata('user_details')[0]->users_id;
+
+            $head['user_data'] = $this->User_model->get_users($userid);
+            $this->load->view('includes/header',$head);
             $this->load->view('reset', $data);
             $this->load->view('footer');
         }
@@ -814,7 +823,10 @@ class User extends CI_Controller
             }
             echo json_encode(array('status' => 'Success', 'message' => 'Email Sent Successfully!'));
         } else {
-            $this->load->view('header');
+            $userid = $this->session->userdata('user_details')[0]->users_id;
+
+            $head['user_data'] = $this->User_model->get_users($userid);
+            $this->load->view('includes/header',$head);
             $this->load->view('forgot');
             $this->load->view('footer');
         }
@@ -828,7 +840,10 @@ class User extends CI_Controller
             $id = $this->session->userdata('user_details')[0]->users_id;
         }
         $data['customer'] = $this->User_model->get_users_full($id);
-        $this->load->view('includes/header');
+        $userid = $this->session->userdata('user_details')[0]->users_id;
+
+        $head['user_data'] = $this->User_model->get_users($userid);
+        $this->load->view('includes/header',$head);
         $this->load->view('address', $data);
         $this->load->view('includes/footer');
     }

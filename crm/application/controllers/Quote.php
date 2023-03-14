@@ -12,6 +12,8 @@ class Quote extends CI_Controller
         if (!is_login()) {
             redirect(base_url() . 'user/profile', 'refresh');
         }
+
+        $this->load->model('User_model');
     }
 
 
@@ -20,7 +22,11 @@ class Quote extends CI_Controller
     {
         $head['title'] = "Manage Quote";
 
-        $this->load->view('includes/header', $head);
+        is_login();
+        $userid = $this->session->userdata('user_details')[0]->users_id;
+        $data['user_data'] = $this->User_model->get_users($userid);
+        $head['user_data']=$data['user_data'];
+        $this->load->view('includes/header',$head);
         $this->load->view('quotes/quotes');
         $this->load->view('includes/footer');
     }
@@ -72,7 +78,11 @@ class Quote extends CI_Controller
 
             $data['employee'] = $this->quote->employee($data['invoice']['eid']);
 
-            $this->load->view('includes/header', $head);
+            is_login();
+            $userid = $this->session->userdata('user_details')[0]->users_id;
+            $data['user_data'] = $this->User_model->get_users($userid);
+            $head['user_data']=$data['user_data'];
+            $this->load->view('includes/header',$head);
             $this->load->view('quotes/view', $data);
             $this->load->view('includes/footer');
         }

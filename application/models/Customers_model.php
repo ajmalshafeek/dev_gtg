@@ -125,6 +125,14 @@ class Customers_model extends CI_Model
         return $query->num_rows($id = '');
     }
 
+    public function mydetails($custid)
+    {
+        $this->db->select('*');
+        $this->db->from('gtg_customers');
+        $this->db->where('id', $custid);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
     public function details($custid, $loc = true)
     {
         $this->db->select('gtg_customers.*,users.lang');

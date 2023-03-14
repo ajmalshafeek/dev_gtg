@@ -2,8 +2,6 @@
       href="<?= assets_url() ?>assets/css/global.css<?= APPVER ?>">
 <link rel="stylesheet" type="text/css"
       href="<?= assets_url() ?>assets/css/normalize.css<?= APPVER ?>">
-
-
 <?php
 
 $rming = $invoice['total'] - $invoice['pamnt'];
@@ -34,49 +32,53 @@ if ($row['surcharge'] > 0) {
 
     <div class="card-header">
         <h1>iPay88 Payment Page</h1>
-<?php print_r($invoice);
-echo "<br><br><br><br>";print_r($_SESSION);
-echo "<br><br><br><br>";print_r($pay_setting);
-?>
     </div>
-
     <div class="card-body">
-
-
         <div class="sr-root">
             <div class="sr-main">
                 <span id="button-text">Pay With
                                         ipay88</span>
-    <FORM method="post" name="ePayment"
-    action="https://payment.ipay88.com.my/ePayment/entry.asp">
-        <INPUT type="hidden" name="MerchantCode"  value="M00003">
+                <?php
+                function iPay88_signature($source)
+                {
+	                return hash('sha256', $source);
+                }
+                $string = substr(str_repeat(0, 8).$invoice['tid'], - 8);
+                $string = $pay_setting['prefix'].$invoice['tid'];
+
+                $signature =   str_replace('.', '',"NpUPyVfkHI".'M15995'.$string.$invoice['total'].$pay_setting['currency']);
+                $signature= iPay88_signature($signature);
+                ?>
+    <FORM method="post" name="ePayment" action="https://payment.ipay88.com.my/ePayment/entry.asp">
+        <INPUT type="hidden" name="MerchantCode"  value="M15995">
         <INPUT type="hidden" name="PaymentId"     value="">
-        <INPUT type="hidden" name="RefNo"         value="<?php echo $pay_setting['prefix'].$invoice['tid']; ?>">
+        <INPUT type="hidden" name="RefNo"         value="<?php
+            if(!empty($pay_setting['prefix'])){ echo $pay_setting['prefix']; } echo $invoice['tid']; ?>">
         <INPUT type="hidden" name="Amount"        value="<?php echo $invoice['total']; ?>">
         <INPUT type="hidden" name="Currency"      value="<?php echo $pay_setting['currency']; ?>">
-        <INPUT type="text" name="ProdDesc" class="form-control"     value="" placeholder="Description" require="required">
+        <INPUT type="hidden" name="ProdDesc" class="form-control" value="<?php echo "payment for invoice ".$pay_setting['prefix'].$invoice['tid']; ?>" >
         <INPUT type="hidden" name="UserName"      value="<?php echo $invoice['name']; ?>">
         <INPUT type="hidden" name="UserEmail"     value="<?php echo $invoice['email']; ?>">
         <INPUT type="hidden" name="UserContact"   value="<?php echo $invoice['phone']; ?>">
+       <!-- <INPUT type="hidden" name="Remark"        value="<?php echo "payment for invoice ".$pay_setting['prefix'].$invoice['tid']." by ".$pay_setting['cname']; ?>"> -->
         <INPUT type="hidden" name="Remark"        value="">
         <INPUT type="hidden" name="Lang"          value="UTF-8">
         <INPUT type="hidden" name="SignatureType" value="SHA256">
         <INPUT type="hidden" name="Signature"
-        value="b81af9c4048b0f6c447129f0f5c0eec8d67cbe19eec26f2cdaba5df4f4dc5a28">
+        value="<?php echo $signature; ?>">
         <INPUT type="hidden" name="ResponseURL"
-        value="<?php base_url('billing/card'); ?>">
+        value="<?php echo base_url('billing/card'); ?>">
         <INPUT type="hidden" name="BackendURL"
-        value="">
+        value="<?php echo base_url('billing/card'); ?>">
         <INPUT type="submit" class="form-control text-white mt-2" style="background-color: orange;" value="Proceed with Payment" name="Submit">
     </FORM>
 
                 <div class="sr-result hidden">
                     <p>Payment completed<br/>
                         <?php
-
                         echo '<a class="btn btn-info btn-block"
-                                                    href = "' . base_url('billing/view?id=' . $invoice['iid']) . '&token=' . $token . '" role = "button" ><i
-                                                        class="fa fa-backward" ></i > </a >';
+                        href = "' . base_url('billing/view?id=' . $invoice['iid']) . '&token=' . $token . '" role = "button" >
+                        <i class="fa fa-backward" ></i > </a >';
                         ?>
                     </p>
                     <pre>

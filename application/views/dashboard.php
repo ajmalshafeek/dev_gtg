@@ -123,7 +123,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-6 col-12">
+                    <?php /*<div class="col-xl-3 col-lg-6 col-12">
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
@@ -141,7 +141,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */ ?>
                     <div class="col-xl-3 col-lg-6 col-12">
                         <div class="card">
                             <div class="card-content">
@@ -184,7 +184,7 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-4 col-lg-12">
+   <div class="col-xl-4 col-lg-12">
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title"><?php echo $this->lang->line('Recent Buyers') ?></h4>
@@ -241,9 +241,9 @@
                                 <a
                                         href="<?php echo base_url() ?>invoices"
                                         class="btn btn-success btn-sm rounded"><?php echo $this->lang->line('Manage Invoices') ?></a>
-                                <a
+                             <?php /*   <a
                                         href="<?php echo base_url() ?>pos_invoices"
-                                        class="btn btn-blue btn-sm rounded"><?php echo $this->lang->line('POS') ?></a></span>
+                                        class="btn btn-blue btn-sm rounded"><?php echo $this->lang->line('POS') ?></a> */ ?></span>
                     </p>
                 </div>
             </div>
@@ -269,10 +269,11 @@
                             if ($item['i_class'] == 0) {
                                 $page = 'invoices';
                                 $t = '';
-                            } elseif ($item['i_class'] == 1) {
-                                $page = 'pos_invoices';
-                                $t = 'POS ';
                             }
+                            //elseif ($item['i_class'] == 1) {
+                               // $page = 'pos_invoices';
+                               // $t = 'POS ';
+                           // }
                             echo '    <tr>
                                 <td class="text-truncate"><a href="' . base_url() . $page . '/view?id=' . $item['id'] . '">' . $t . '#' . $item['tid'] . '</a></td>
                              
@@ -332,7 +333,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+       <?php /*     <div class="card">
                 <div class="card-content">
 
                     <div class="card-body">
@@ -351,7 +352,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*/ ?>
             <div class="card">
                 <div class="card-content">
 
@@ -429,6 +430,7 @@
             </div>
         </div>
     </div>
+    <?php /* temprary hide
     <div class="col-xl-5 col-lg-12">
         <div class="card">
             <div class="card-header">
@@ -478,9 +480,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> */?>
 </div>
 <div class="row match-height">
+    <?php /*
     <div class="col-xl-8 col-lg-12">
         <div class="card">
             <div class="card-header">
@@ -530,7 +533,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> */ ?>
+    <?php /* temprary hide
     <div class="col-xl-4 col-lg-12">
         <div class="card">
             <div class="card-header ">
@@ -552,6 +556,7 @@
             </div>
         </div>
     </div>
+    */ ?>
 </div>
 <script type="text/javascript">
     $(window).on("load", function () {
@@ -657,7 +662,7 @@
     }
 
     drawIncomeChart(dataVisits);
-    drawExpenseChart(dataVisits2);
+    //drawExpenseChart(dataVisits2);
     $('#dashboard-sales-breakdown-chart').empty();
     Morris.Donut({
         element: 'dashboard-sales-breakdown-chart',

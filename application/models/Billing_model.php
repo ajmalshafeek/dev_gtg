@@ -10,7 +10,7 @@ class Billing_model extends CI_Model
     {
         $account['id'] = false;
         if ($loc) {
-            $this->db->select('gtg_accounts.id,gtg_accounts.holder,');
+            $this->db->select('gtg_accounts.id,gtg_accounts.holder');
             $this->db->from('gtg_locations');
             $this->db->where('gtg_locations.id', $loc);
             $this->db->join('gtg_accounts', 'gtg_locations.ext = gtg_accounts.id', 'left');
@@ -18,7 +18,8 @@ class Billing_model extends CI_Model
             $account = $query->row_array();
         }
         if (!$account['id']) {
-            $this->db->select('gtg_accounts.id,gtg_accounts.holder,');
+            echo " acount id not set";
+            $this->db->select('gtg_accounts.id,gtg_accounts.holder');
             $this->db->from('univarsal_api');
             $this->db->where('univarsal_api.id', 54);
 
@@ -55,7 +56,7 @@ class Billing_model extends CI_Model
 
         if (!$bill_date) $bill_date = date('Y-m-d');
 
-
+        print_r($account);
         $data = array(
             'acid' => $account['id'],
             'account' => $account['holder'],

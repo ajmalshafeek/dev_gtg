@@ -21,6 +21,7 @@ class Billing extends CI_Controller
         $this->config->set_item('csrf_protection', FALSE);
         $this->load->model('invoices_model', 'invocies');
         $this->load->model('billing_model', 'billing');
+        $this->load->model('customers_model', 'customers');
         $this->load->library("Aauth");
         $this->load->library("Custom");
 
@@ -28,21 +29,14 @@ class Billing extends CI_Controller
 
     public function view()
     {
-
         if (!$this->input->get()) {
             exit();
         }
-
         $tid = $this->input->get('id');
         $token = $this->input->get('token');
-
         $validtoken = hash_hmac('ripemd160', $tid, $this->config->item('encryption_key'));
-
         if (hash_equals($token, $validtoken)) {
-
             $this->load->model('accounts_model');
-
-
             $data['id'] = $tid;
             $data['token'] = $token;
 
@@ -55,19 +49,178 @@ class Billing extends CI_Controller
             if (CUSTOM) $data['c_custom_fields'] = $this->custom->view_fields_data($data['invoice']['cid'], 1, 1);
             $data['gateway'] = $this->billing->gateway_list('Yes');
 
-
             $data['employee'] = $this->invocies->employee($data['invoice']['eid']);
-
+           // $data['customers']=$this->aauth->get_user()->roleid;
+            $data['customers']=$this->customers->mydetails($this->session->userdata('user_details')[0]->users_id);
             $head['usernm'] = '';
             $head['title'] = "Invoice " . $data['invoice']['tid'];
             $this->load->view('billing/header', $head);
             $this->load->view('billing/view', $data);
             $this->load->view('billing/footer');
         }
-
     }
+    public function walletpay(){
+       $cid=$_POST['cid'];
+        $customer=$this->customers->mydetails($cid);
+        $id=$_POST['id'];
+        $tid=$_POST['tid'];
+        $amount=$_POST['amount'];
+        $pmethod=$_POST['pmethod'];
+        if($_POST['pmethod']=="Balance"){
+            $pmethod="Wallet Payment";
+        }
+        $shortnote="";
+        if(isset($_POST['shortnote'])){
+        $shortnote=" customer note:".$_POST['shortnote'];
+        }
+        $multi=$_POST['multi'];
+        $loc=$_POST['loc'];
+        $account=$customer['balance'];
+        if($account<$amount){
+            $htmlcode='<!DOCTYPE html><html lang="en">
+                    <head><meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+                    <title>Payment - Error</title>
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+                    </head><body>
+                    <div class="card alert alert-danger" style="margin: 15px auto;max-width: 700px;">
+                        <div class="card-body">
+                            <h4 class="card-title">Error - '.$tid.'</h4>
+                            <p class="card-text">You Wallet Balence is low.</p>
+                            <a class="card-link" href="/crm/invoices">Back to Invoice</a>
+                        </div>
+                    </div>
+                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script></body></html>';
 
+            echo $htmlcode;
+        }else{
 
+        $note = $pmethod.' for invoice #' . $tid.", amount: ".$amount;
+
+        $amount = number_format($amount, 2, '.', '');
+
+        $amount_o=$amount;
+        $amount_o = rev_amountExchange_s($amount_o, $multi, $loc);
+
+            if ($this->billing->paynow($id, $amount_o, $note." ".$shortnote, $pmethod, $customer['loc'])) {
+                $htmlcode='<!DOCTYPE html><html lang="en">
+                    <head><meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+                    <title>Payment - Success</title>
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+                    </head><body>
+                    <div class="card alert alert-success" style="margin: 15px auto;max-width: 700px;">
+                        <div class="card-body">
+                            <h4 class="card-title">Payment For - '.$tid.'</h4>
+                            <p class="card-text"><h3>Thanks For The Payment</h3><br/>'.$note.'</p>
+                            <a class="card-link" href="'.base_url().'crm/invoices">Back to Invoice</a>
+                        </div>
+                    </div>
+                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script></body></html>';
+
+                echo $htmlcode;
+             }
+        }
+    }
+    public function progress_invoice_ipay88(){
+        $pmethod = 'Card';
+        $pay = array(
+            array("paymethod" => "Credit Card (MYR)", "payid" => "2"),
+            array("paymethod" => "Maybank2U", "payid" => "6"),
+            array("paymethod" => "Alliance Online", "payid" => "8"),
+            array("paymethod" => "AmOnline", "payid" => "10"),
+            array("paymethod" => "RHB Online", "payid" => "14"),
+            array("paymethod" => "Hong Leong Online", "payid" => "15"),
+            array("paymethod" => "CIMB Click", "payid" => "20"),
+            array("paymethod" => "Web Cash", "payid" => "22"),
+            array("paymethod" => "Public Bank Online", "payid" => "31"),
+            array("paymethod" => "PayPal (MYR)", "payid" => "48"),
+            array("paymethod" => "Credit Card (MYR) Pre-Auth", "payid" => "55"),
+            array("paymethod" => "Bank Rakyat Internet Banking", "payid" => "102"),
+            array("paymethod" => "Affin Online", "payid" => "103"),
+            array("paymethod" => "Pay4Me (Delay payment)", "payid" => "122"),
+            array("paymethod" => "BSN Online", "payid" => "124"),
+            array("paymethod" => "Bank Islam", "payid" => "134"),
+            array("paymethod" => "UOB", "payid" => "152"),
+            array("paymethod" => "Hong Leong PEx+ (QR Payment)", "payid" => "163"),
+            array("paymethod" => "Bank Muamalat", "payid" => "166"),
+            array("paymethod" => "OCBC", "payid" => "167"),
+            array("paymethod" => "Standard Chartered Bank", "payid" => "168"),
+            array("paymethod" => "CIMB Virtual Account (Delay payment)", "payid" => "173"),
+            array("paymethod" => "HSBC Online Banking", "payid" => "198"),
+            array("paymethod" => "Kuwait Finance House", "payid" => "199"),
+            array("paymethod" => "Boost Wallet", "payid" => "210"),
+            array("paymethod" => "VCash", "payid" => "243"),
+            array("paymethod" => "Credit Card (USD)", "payid" => "25"),
+            array("paymethod" => "Credit Card (GBP)", "payid" => "35"),
+            array("paymethod" => "Credit Card (THB)", "payid" => "36"),
+            array("paymethod" => "Credit Card (CAD)", "payid" => "37"),
+            array("paymethod" => "Credit Card (SGD)", "payid" => "38"),
+            array("paymethod" => "Credit Card (AUD)", "payid" => "39"),
+            array("paymethod" => "Credit Card (MYR)", "payid" => "40"),
+            array("paymethod" => "Credit Card (EUR)", "payid" => "41"),
+            array("paymethod" => "Credit Card (HKD)", "payid" => "42")
+        );
+        foreach ($pay as $value) {
+            if($value['payid']==$_REQUEST['PaymentId'])
+                $pmethod=$value['paymethod'];
+        }
+        $pay_settings = $this->billing->pay_settings();
+        $test=$pay_settings['prefix'];
+        $tid=$_REQUEST['RefNo'];
+        if(!empty($test)){
+            $tid=substr($_REQUEST['RefNo'],strlen($test));
+        }
+
+        $hash= hash_hmac('ripemd160', $tid, $this->config->item('encryption_key'));
+        $itype = 'inv';
+        if ($itype == 'inv') {
+            $customer = $this->invocies->invoice_table_details($tid, null, false);
+            if (!is_array($customer)) {
+                exit();
+            }
+        }
+        $note = $pmethod.' for #' . $_REQUEST['RefNo']." by ipay88 transid:".$_REQUEST['TransId'];
+        //$note = $pmethod.' for #' . $_REQUEST['RefNo']." by ipay88 transid:".$_REQUEST['TransId'].",  bankmid:".$_REQUEST['BankMID'].", bank name:".$_REQUEST['S_bankname'].", country:".$_REQUEST['S_country'];
+            echo $note;
+        $amount = number_format($_REQUEST['Amount'], 2, '.', '');
+        print_r($customer);
+        $amount_o=$amount;
+ echo " Amount ".$amount_o;
+        $amount_o = rev_amountExchange_s($amount_o, $customer['multi'], $customer['loc']);
+
+        if ($this->billing->paynow($customer['id'], $amount_o, $note, $pmethod, $customer['loc'])) {
+            $htmlcode='<!DOCTYPE html><html lang="en">
+                    <head><meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+                    <title>Payment - Error</title>
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+                    </head><body>
+                    <div class="card alert alert-success" style="margin: 15px auto;max-width: 700px;">
+                        <div class="card-body">
+                            <h4 class="card-title">Payment Successful</h4>
+                            <div class="table-responsive mx-1 my-1">
+                                <table class="table">
+                                    <tr><td>Date</td><td>'.$_REQUEST['TranDate'].'</td></tr>
+                                    <tr><td>Invoice No</td><td>'.$_REQUEST['RefNo'].'</td></tr>
+                                    <tr><td>Transaction Id</td><td>'.$_REQUEST['TransId'].'</td></tr>
+                                    <tr><td>Amount</td><td>'.$_REQUEST['Amount'].'</td></tr>
+                                </table>
+                            </div>
+                            <a class="card-link" href="/crm/invoices">Back to Invoice</a>
+                        </div>
+                    </div>
+                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script></body></html>';
+
+            echo $htmlcode;
+            unset($_REQUEST);
+            exit;
+            header('Content-Type: application/json');
+            echo json_encode(array('status' => 'Success', 'message' =>
+                $this->lang->line('Thank you for the payment') . " <a href='" . base_url('billing/view?id=' . $tid . '&token=' . $hash) . "' class='btn btn-info btn-lg'><span class='icon-file-text2' aria-hidden='true'></span> " . $this->lang->line('View') . "</a>"));
+        }
+        exit;
+    }
     public function quoteview()
     {
         if (!$this->input->get()) {
@@ -401,8 +554,51 @@ class Billing extends CI_Controller
 
     public function card()
     {
+        $this->load->library('session');
+        $response = array();
+        if (isset($_REQUEST)) {
+            $response[] = $_REQUEST;
+            if (isset($_REQUEST['Status'])) {
+                $data['response'] = $response;
+                if($_REQUEST['Status'] > 0){
+                    $this->progress_invoice_ipay88();
+                }else{
+                    $htmlcode='<!DOCTYPE html><html lang="en">
+                    <head><meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+                    <title>Payment - Error</title>
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+                    </head><body>
+                    <div class="card alert alert-danger" style="margin: 15px auto;max-width: 700px;">
+                        <div class="card-body">
+                            <h4 class="card-title">Error - '.$_REQUEST['RefNo'].'</h4>
+                            <p class="card-text">'.$_REQUEST['ErrDesc'].'</p>
+                            <a class="card-link" href="/crm/invoices">Back to Invoice</a>
+                        </div>
+                    </div>
+                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script></body></html>';
+
+                    echo $htmlcode;
+                    exit;
+                }
+            }
+        }
+
         if (!$this->input->get()) {
+            $data['tid'] =  $this->session->has_userdata('tid');
+            $data['token'] =  $this->session->has_userdata('token');
+            $data['itype'] =  'inv';
+            $data['gid'] =  9;
             exit();
+        }else{
+            $data['tid'] = $this->input->get('id');
+            $this->session->set_userdata('tid', $this->input->get('id'));
+            $data['token'] = $this->input->get('token');
+            $this->session->set_userdata('token', $data['token']);
+            $data['itype'] = $this->input->get('itype');
+            $this->session->set_userdata('itype', $data['itype']);
+            $data['gid'] = $this->input->get('gid');
+            $this->session->set_userdata('gid', $data['gid']);
         }
         $data['redirect_u'] = '';
         if (isset($_COOKIE['pos_set'])) {
@@ -413,15 +609,15 @@ class Billing extends CI_Controller
         if ($online_pay['enable'] == 0) {
             exit();
         }
-        $data['tid'] = $this->input->get('id');
-        $data['token'] = $this->input->get('token');
-        $data['itype'] = $this->input->get('itype');
-        $data['gid'] = $this->input->get('gid');
+
+
         if ($data['itype'] == 'inv') {
             $validtoken = hash_hmac('ripemd160', $data['tid'], $this->config->item('encryption_key'));
             if (hash_equals($data['token'], $validtoken)) {
                 $data['invoice'] = $this->invocies->invoice_details($data['tid'], '', false);
                 $data['company'] = location($data['invoice']['loc']);
+                $this->session->set_userdata('invoice', $data['invoice'] );
+                $this->session->set_userdata('company', $data['company'] );
             } else {
                 exit();
             }
@@ -455,20 +651,17 @@ class Billing extends CI_Controller
                 $fname = 'ipay88';
                 break;
             default :
-                $fname = 'stripe';
+                $fname = 'ipay88';
                 break;
         }
         $online_pay = $this->billing->online_pay_settings();
         $pay_settings = $this->billing->pay_settings();
+
         $data['pay_setting']=$pay_settings;
 
-        if(isset($_GET)){
-
-        }
-        elseif(isset($_POST)){
-
-        }
         $data['gateway'] = $this->billing->gateway($data['gid']);
+        $response=array();
+
         if ($online_pay['enable'] == 1) {
             $this->load->view('billing/header');
             $this->load->view('gateways/card_' . $fname, $data);
@@ -525,7 +718,6 @@ class Billing extends CI_Controller
         if (hash_equals($hash, $validtoken)) {
             switch ($gateway) {
                 case 1:
-
                     $response = $this->stripe($this->input->post('paymentMethodId', true), number_format($amount, 0, '', ''), $gateway_data, $tid, $customer, '', $this->input->post('paymentIntentId', true));
                     break;
                 case 2:

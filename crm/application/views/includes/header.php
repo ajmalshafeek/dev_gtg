@@ -54,17 +54,17 @@
     <script src="<?php echo assets_url('crm-assets/js/custom.js'); ?>"></script>
 <style>
 .header-navbar.navbar-semi-dark .navbar-header {
-     background: #219A8F;
+     background: #4390A4;
 }
 .navbar-semi-dark .navbar-header {
-    background: #219A8F;
+    background: #4390A4;
 }
 .main-menu.menu-dark .navigation {
-    background: #219A8F;
+    background: #4390A4;
 }
 .main-menu.menu-dark {
     color: #dcdcdc;
-    background: #219A8F;
+    background: #4390A4;
 }
 .main-menu.menu-dark .navigation > li.hover > a, .main-menu.menu-dark .navigation > li:hover > a, .main-menu.menu-dark .navigation > li.active > a {
     color: #c3c3c3;
@@ -171,14 +171,13 @@ $(document).ready(function() {
 
                 </ul>
                 <ul class="nav navbar-nav float-xs-right">
+                    <li class="dropdown dropdown-user nav-item">
 
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
+                            <span class="avatar avatar-online">
 
-
-                    <li class="dropdown dropdown-user nav-item"><a href="#" data-toggle="dropdown"
-                                                                   class="dropdown-toggle nav-link dropdown-user-link"><span
-                                    class="avatar avatar-online"><img
-                                        src="<?php echo assets_url(); ?>crm-assets/images/user.png"
-                                        alt="avatar"><i></i></span></a>
+                                 <img src="<?php echo assets_url(); ?><?php echo isset($user_data[0]->profile_pic) ? "../userfiles/customers/".$user_data[0]->profile_pic : 'crm-assets/images/user.png'; ?>" alt="avatar">
+                                <i></i></span></a>
                         <div class="dropdown-menu dropdown-menu-right"><a href="<?php echo base_url(); ?>user/profile"
                                                                           class="dropdown-item"><i
                                         class="icon-head"></i><?php echo $this->lang->line('Profile') ?></a>
@@ -208,18 +207,22 @@ $(document).ready(function() {
             <li class="nav-item <?php if ($this->uri->segment(1) == "invoices") {
                 echo 'active';
             } ?>">
-                <a href="<?php echo base_url(); ?>invoices/"> <i class="icon-file-text"></i><span class="menu-title"> <?php echo $this->lang->line('Invoices'); ?> </span></a>
+                <a href="<?php echo base_url(); ?>invoices/"> <i class="icon-file-text"></i><span class="menu-title"> <?php echo $this->lang->line('Pay Bill'); ?> </span></a>
             </li>
+            <?php /* temprary hide
             <li class="nav-item <?php if ($this->uri->segment(1) == "rec_invoices") {
                 echo 'active';
             } ?>">
                 <a href="<?php echo base_url(); ?>subscriptions/"> <i class="icon-android-calendar"></i><span class="menu-title"> <?php echo $this->lang->line('Subscriptions'); ?> </span></a>
-            </li>
+            </li> */ ?>
+ 
+            <?php /* temprary hide
             <li class="nav-item <?php if ($this->uri->segment(1) == "quote") {
                 echo 'active';
             } ?>">
                 <a href="<?php echo base_url(); ?>quote/"> <i class="icon-file"></i><span class="menu-title"> <?php echo $this->lang->line('Quotes'); ?> </span></a>
-            </li>
+            </li> */?>
+
             <li class="nav-item <?php if($this->uri->segment(2) == "recharge") echo "active"; ?>">
                 <a href="<?php echo base_url("payments/recharge"); ?>"><i class="icon-credit-card2"></i>
                     <span><?php echo $this->lang->line('Recharge Account'); ?></span></a>
@@ -228,14 +231,17 @@ $(document).ready(function() {
                 <a href="<?php echo base_url("payments"); ?>"><i class="icon-cash"></i>
                     <span><?php echo $this->lang->line('Payment History'); ?></span></a>
             </li>
+            <?php /* temprary hide
             <li class="nav-item <?php if($this->uri->segment(1) == "tickets") echo "active"; ?>">
                 <a href="<?php echo base_url("tickets"); ?>"><i class="icon-ticket"></i>
                     <span><?php echo $this->lang->line('Support Tickets') ?></span></a>
-            </li>
+            </li> */ ?>
+            <?php /* temprary hide
             <li class="nav-item <?php if($this->uri->segment(1) == "projects") echo "active"; ?>">
                 <a href="<?php echo base_url("projects"); ?>"><i class="icon-stack"></i>
                     <span><?php echo $this->lang->line('Project'); ?></span></a>
             </li>
+ */ ?>
             <li class="nav-item <?php if ($this->uri->segment(2) == "profile") {
                 echo 'active';
             } ?>">
@@ -246,11 +252,12 @@ $(document).ready(function() {
             } ?>">
                 <a href="<?php echo base_url(); ?>user/address"> <i class="icon-address-book"></i><span class="menu-title"> <?php echo $this->lang->line('Address') ?> </span></a>
             </li>
+            <?php /* temprary hide
             <li class="nav-item <?php if($this->uri->segment(1) == "paybill") echo "active"; ?>">
                 <a href="<?php echo base_url("paybill"); ?>"><i class="icon-qrcode"></i>
                     <span><?php echo $this->lang->line('Pay Bill'); ?></span></a>
             </li>
-
+*/ ?>
 
         </ul>
     </div>

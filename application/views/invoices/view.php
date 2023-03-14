@@ -116,6 +116,8 @@
                             <a href="#cancel-bill" class="btn btn-danger mb-1" id="cancel-bill"><i
                                         class="fa fa-minus-circle"> </i> <?php echo $this->lang->line('Cancel') ?>
                             </a>
+
+                            <?php /* temprary hide
                             <div class="btn-group ">
                                 <button type="button" class="btn btn-primary mb-1 btn-min-width dropdown-toggle"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
@@ -139,7 +141,7 @@
                                     <a class="dropdown-item"
                                        href="<?= base_url() . 'pos_invoices/thermal_pdf?id=' . $invoice['iid']; ?>"><?php echo $this->lang->line('PDF Print') ?></a>
                                 </div>
-                            </div>
+                            </div> */ ?>
 
 
 
@@ -845,8 +847,6 @@
 
             <div class="modal-body">
                 <form id="form_model">
-
-
                     <div class="row">
                         <div class="col mb-1"><label
                                     for="pmethod"><?php echo $this->lang->line('Mark As') ?></label>

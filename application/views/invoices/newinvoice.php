@@ -47,18 +47,22 @@
                                         <div id="customer_phone"></div>
                                     </div>
                                     <hr>
-                                    <div id="customer_pass"></div><?php echo $this->lang->line('Warehouse') ?> <select
+                                    <div id="customer_pass"></div>
+
+                                    <?php  /* temprary hide echo $this->lang->line('Warehouse') ?> <select
                                             id="s_warehouses"
                                             class="form-control round">
                                         <?php echo $this->common->default_warehouse();
-                                        echo '<option value="0">' . $this->lang->line('All') ?></option><?php foreach ($warehouse as $row) {
-                                            echo '<option value="' . $row['id'] . '">' . $row['title'] . '</option>';
+
+                                        echo '<option value="0">' . $this->lang->line('All') ?></option>
+                                        <?php foreach ($warehouse as $row) {
+                                           // echo '<option value="' . $row['id'] . '">' . $row['title'] . '</option>';
+
                                         } ?>
 
-                                    </select>
+                                    </select> */
+                                    echo ' <input type="hidden" id="s_warehouses" value="0">'; ?>
                                 </div>
-
-
                             </div>
                         </div>
                         <div class="col-sm-6 cmp-pnl">

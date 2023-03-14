@@ -12,13 +12,19 @@ class Subscriptions extends CI_Controller
         if (!is_login()) {
             redirect(base_url() . 'user/profile', 'refresh');
         }
+
+        $this->load->model('User_model');
     }
 
     //invoices list
     public function index()
     {
         $head['title'] = "Manage Invoices";
-        $this->load->view('includes/header');
+        is_login();
+        $userid = $this->session->userdata('user_details')[0]->users_id;
+        $data['user_data'] = $this->User_model->get_users($userid);
+        $head['user_data']=$data['user_data'];
+        $this->load->view('includes/header',$head);
         $this->load->view('subscriptions/invoices');
         $this->load->view('includes/footer');
     }
@@ -76,7 +82,11 @@ class Subscriptions extends CI_Controller
             $data['products'] = $this->invocies->invoice_products($tid);
             $data['activity'] = $this->invocies->invoice_transactions($tid);
             $data['employee'] = $this->invocies->employee($data['invoice']['eid']);
-            $this->load->view('includes/header');
+            is_login();
+            $userid = $this->session->userdata('user_details')[0]->users_id;
+            $data['user_data'] = $this->User_model->get_users($userid);
+            $head['user_data']=$data['user_data'];
+            $this->load->view('includes/header',$head);
             $this->load->view('subscriptions/view', $data);
             $this->load->view('includes/footer');
         }

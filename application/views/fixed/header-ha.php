@@ -97,8 +97,11 @@
                         foreach ($loc as $row) {
                             echo ' <option value="' . $row['id'] . '"> ' . $row['cname'] . '</option>';
                         }
-                        echo ' <option value="0">Master/Default</option>';
-                        ?></select></li>
+                                                                /* temprary hide
+                                                               echo ' <option value="0">Master/Default</option>';
+                                                               */
+                                                            ?>
+                                                            </select></li>
                                                         <li><a class="dropdown-item"
                                                                href="<?php echo base_url(); ?>tools/setgoals"><i
                                                                         class="ft-chevron-right"></i> <?php echo $this->lang->line('Set Goals') ?>
@@ -556,13 +559,14 @@
                         <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
                                                                           href="<?php echo base_url(); ?>user/profile"><i
                                         class="ft-user"></i> <?php echo $this->lang->line('Profile') ?></a>
+                            <?php /* temprary hide
                             <a href="<?php echo base_url(); ?>user/attendance"
                                class="dropdown-item"><i
                                         class="fa fa-list-ol"></i><?php echo $this->lang->line('Attendance') ?></a>
                             <a href="<?php echo base_url(); ?>user/holidays"
                                class="dropdown-item"><i
                                         class="fa fa-hotel"></i><?php echo $this->lang->line('Holidays') ?></a>
-
+                            */ ?>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<?php echo base_url('user/logout'); ?>"><i
                                         class="ft-power"></i> <?php echo $this->lang->line('Logout') ?></a>
@@ -596,7 +600,7 @@
                         <?php    if ($this->aauth->premission(12)) { ?>
                         <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
                                     class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                        class="icon-paper-plane"></i><?php echo $this->lang->line('pos sales') ?></a>
+                                        class="icon-paper-plane"></i><?php echo $this->lang->line('pos invoices') ?></a>
                             <ul class="dropdown-menu">
                                 <li data-menu=""><a class="dropdown-item" href="<?= base_url(); ?>pos_invoices/create"
                                                     data-toggle="dropdown"><?php echo $this->lang->line('New Invoice'); ?></a>
@@ -615,7 +619,7 @@
                         <?php } ?>
                         <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
                                     class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                        class="icon-basket"></i><?php echo $this->lang->line('sales') ?></a>
+                                        class="icon-basket"></i><?php echo $this->lang->line('invoices') ?></a>
                             <ul class="dropdown-menu">
                                 <li data-menu=""><a class="dropdown-item" href="<?= base_url(); ?>invoices/create"
                                                     data-toggle="dropdown"><?php echo $this->lang->line('New Invoice'); ?></a>
@@ -626,6 +630,7 @@
 
                             </ul>
                         </li>
+                       
                         <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
                                     class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown"><i
                                         class="icon-call-out"></i><?php echo $this->lang->line('Quotes') ?></a>
@@ -639,6 +644,7 @@
                             </ul>
                         </li>
 
+                        <?php /* temprary hide
                         <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
                                     class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown"><i
                                         class="ft-radio"></i><?php echo $this->lang->line('Subscriptions') ?></a>
@@ -655,7 +661,7 @@
                             <a class="dropdown-item" href="<?php echo base_url(); ?>stockreturn/creditnotes"><i
                                         class="icon-screen-tablet"></i><?php echo $this->lang->line('Credit Notes'); ?>
                             </a>
-                        </li>
+                        </li>*/ ?>
                     </ul>
                 </li>
             <?php }
@@ -829,6 +835,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <?php /* temprary hide
                         <li data-menu="">
                             <a class="dropdown-item" href="<?php echo base_url(); ?>clientgroup"><i
                                         class="icon-grid"></i><?php echo $this->lang->line('Client Groups'); ?></a>
@@ -845,7 +852,7 @@
                                                     data-toggle="dropdown"><?= $this->lang->line('Manage Tickets'); ?></a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> */ ?>
 
                     </ul>
                 </li>
@@ -1134,6 +1141,7 @@
                                                     href="<?php echo base_url(); ?>employee/permissions"
                                                     data-toggle="dropdown"><?= $this->lang->line('Permissions'); ?></a>
                                 </li>
+                                <?php /* temprary hide
                                 <li data-menu=""><a class="dropdown-item"
                                                     href="<?php echo base_url(); ?>employee/salaries"
                                                     data-toggle="dropdown"><?= $this->lang->line('Salaries'); ?></a>
@@ -1145,7 +1153,7 @@
                                 <li data-menu=""><a class="dropdown-item"
                                                     href="<?php echo base_url(); ?>employee/holidays"
                                                     data-toggle="dropdown"><?= $this->lang->line('Holidays'); ?></a>
-                                </li>
+                                </li> */ ?>
                             </ul>
                         </li>
                         <li data-menu="">
@@ -1163,6 +1171,7 @@
             <?php }
             if ($this->aauth->get_user()->roleid > 4) {
                 ?>
+                <?php /* temprary hide
                 <li class="dropdown mega-dropdown nav-item" data-menu="megamenu"><a class="dropdown-toggle nav-link"
                                                                                     href="#" data-toggle="dropdown"><i
                                 class="ft-bar-chart-2"></i><span><?php echo $this->lang->line('Export_Import'); ?></span></a>
@@ -1224,7 +1233,7 @@
                         </li>
 
                     </ul>
-                </li>
+                </li> */ ?>
             <?php }
             ?>
 

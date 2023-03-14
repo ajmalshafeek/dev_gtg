@@ -109,35 +109,30 @@ color:#fff !important;
 <div class="container my-5 align-middle" style="box-shadow: 1px 4px 20px -5px #545454ed;border-radius: 10px;">
     <div class="row" style="background-color:#E2F6EF;padding:15px;border-radius: 10px 10px 0px 0px;">
         <div class="col-5 text-left">
-            <!--<img src="<?php echo substr_replace(base_url(), '', -4); ?>userfiles/company/<?php echo $this->config->item('logo'); ?>"
+         <?php /*   <!--<img src="<?php echo substr_replace(base_url(), '', -4); ?>userfiles/company/<?php echo $this->config->item('logo'); ?>"
             alt="logo" style="max-height: 10rem;  max-width: 10rem;">-->
 <img src="<?php echo substr_replace(base_url(), '', -4); ?>userfiles/theme/logo-header.png"
-            alt="logo" style="max-height: 10rem;  max-width: 10rem;">
+            alt="logo" style="max-height: 10rem;  max-width: 10rem;"> */ ?>
 
         </div>
         <div class="col-7 text-right">
-            <h5 class="logtxt" style="color:#24436D; padding: 15px 0px;
-    margin: 0px;"><strong><?php echo $this->lang->line('Customers')  ?> <?php echo $this->lang->line('login')  ?></strong></h5>
+            <h5 class="logtxt" style="color:#24436D;
+    margin: 0px;"><strong><?php // echo $this->lang->line('Client')  ?> <?php // echo $this->lang->line('login')  ?>Client Login</strong></h5>
     </div>
     </div>
 
     <div class="row">
-        <div class="col-md-5 " style=" background: url(<?php echo base_url(); ?>crm-assets/images/backgrounds/login-side-image.jpg) no-repeat;background-size: cover;background-position: center; ">
-        <h2 class="fcolor" style="font-weight: 700 !important; margin-top:6rem;">Welcome to ERP System</h2>
-    <h3 class="fcolor" style="font-weight: 600 !important;">by Jsoft Solution</h3>
-    <ul class="mb-5 fcolor">
-        <li>Company management</li>
-        <li>Invoice management</li>
-        <li>Payment Management</li>
-        <li>Payroll Management</li>
-        <li>Customer Management</li>
-    </ul>
+        <div class="col-md-6 " style=" background: url(<?php echo base_url(); ?>crm-assets/images/backgrounds/login-side-image.jpg) no-repeat;background-size: cover;background-position: center; ">
+            <div style="display: flex; align-items: center; justify-content: center;margin-top: 150px" class="row">
+                <div class="col-6"><img src="<?php echo base_url()?>../userfiles/theme/logo-header.png" width="100%"/></div>
+                <div class="col-6"> <img src="<?php echo base_url(); ?>../app-assets/images/elements/clientImg.png" width="100%" /></div>
+            </div>
     <div class="fcolor" style="margin-bottom:0.5rem;">
-        Not a customer?
+
     </div>
     <div class="mb-5">
         <a href="<?php echo base_url(); ?>../" class="fcolor">
-            <u><em>Login as employee</em></u>
+            <u><em>Login as management</em></u>
         </a>
     </div>
     <div class="mb-2">
@@ -149,7 +144,7 @@ color:#fff !important;
 
 
     </div>
-                    <div class="col-md-7 bg-white">
+                    <div class="col-md-6 bg-white">
                         <div class="px-1 py-1 m-0">
                             <div class="card-content">
                                 <div class="card-body" style="max-width:400px;margin-right: auto;margin-left: auto;">

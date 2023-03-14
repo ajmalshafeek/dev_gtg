@@ -80,6 +80,48 @@
                 </div>
             </div>
 
+            <!--Signature start-->
+            <div class='form-group row onremarks' id='signatureParent'>
+                <label for='signature' class='col-sm-12 col-md-2 col-form-label col-form-label-lg'>Customer's
+                    Signature</label>
+                <div class='col-sm-12 col-md-10'>
+                    <div id="signature" name="signature"></div>
+                </div>
+            </div>
+            <!--Signature end-->
+
+            <!-- (Start)Image Before After -->
+            <div class='form-group row onremarks' id='option'>
+                <label for='taken' class='col-sm-2 col-form-label col-form-label-lg'>Required</label>
+                <div class='col-sm-10'>
+                    <label for='taken' class='col-sm-6 col-form-label col-form-label-lg'>
+                        <input type="radio" name="taken" value="1" checked/>&nbsp;
+                        Before's Sanpshot
+                    </label>&nbsp;
+                    <label for='taken' class='col-sm-6 col-form-label col-form-label-lg'>
+                        <input type="radio" name="taken" value="2"/>&nbsp;
+                        After's Sanpshot
+                    </label>
+                </div>
+            </div>
+            <!-- (End)Image Before After -->
+
+            <!-- (START)picture -->
+            <div class='form-group row onremarks' id='picture'>
+                <label for='pictures' class='col-sm-2 col-form-label col-form-label-lg'>Picture's</label>
+                <div class='col-sm-10'>
+                    <a href="#" class="btn my-2 mx-2 btn-dark" data-toggle="modal" data-target="#imageCaptureModal">TAKE
+                        SNAPSHOT</a>
+                    <div class="row wrapper mt-4">
+                    </div>
+                </div>
+            </div>
+            <!-- (END)picture -->
+
+            <!-- Location -->
+            <input id="latitude" type="text" name="latitude" hidden>
+            <input id="longitude" type="text" name="longitude" hidden>
+            <!-- location end -->
 
             <div class="form-group row">
 
@@ -149,3 +191,192 @@
         </div>
     </div>
 </div>
+<!-- modal span shot start-->
+<!-- (START)CAPTURE IMAGE FORM -->
+
+<div class="modal fade" id="imageCaptureModal" tabindex="-1" role="dialog"
+     aria-labelledby="imageCaptureModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Snapshot Screen <a href="#" class="button btn my-2 mx-2"
+                                                           id="btnChangeCamera">
+                        <span class="icon"><i class="fa fa-refresh" aria-hidden="true"></i></span>
+                        <span>Switch camera</span>
+                    </a></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <small><i>NOTE: You can take multiple snapshot</i></small>
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <div id="screenshot" style="width:100%; ">
+                            <video id="videoDiv" autoplay style="width:100%; "></video>
+                            <img id="imgTaken" src="" hidden>
+                            <input id="base64img" type="text" name="base64img" hidden>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <button class="btn btn-primary btn-lg btn-block" type="button" name="button"
+                                id="screenshot-button">Take Snapshot
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal span shot end-->
+
+<script>
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+     //   document.getElementById("latitude").value = position.coords.latitude;
+     //   document.getElementById("longitude").value = position.coords.longitude;
+        console.log(position.coords.latitude + "/" + position.coords.longitude);
+    }
+
+    (function () {
+        getLocation();
+    })();
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // get page elements
+        const video = document.querySelector('#screenshot video');
+        const screenshotButton = document.querySelector('#screenshot-button');
+        const btnChangeCamera = document.querySelector("#btnChangeCamera");
+        const img = document.querySelector('#screenshot img');
+        const canvas = document.createElement('canvas');
+        const devicesSelect = document.querySelector("#devicesSelect");
+
+        // video constraints
+        const constraints = {
+
+            video: {width: {min: 100}, height: {min: 144}}
+        };
+
+        // use front face camera
+        let useFrontCamera = true;
+
+        // current video stream
+        let stream = null;
+        // switch camera
+
+        screenshotButton.onclick = video.onclick = function () {
+            //   document.getElementById("shutterEffect").play();
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+            // Other browsers will fall back to image/png
+            img.src = canvas.toDataURL('image/webp');
+            console.log(canvas.toDataURL('image/webp'));
+            document.getElementById("base64img").value = img.src;
+            // allowed maximum input fields
+            var max_input = 10;
+
+            // initialize the counter for textbox
+            var x = 1;
+            if (x < max_input) { // validate the condition
+                x++; // increment the counter
+                $('.wrapper').append(`
+				<div class="col-md-3">
+					<div class="input-box col-sm-11">
+					<img id="imgTaken" src="` + img.src + `" width="100%">
+					<input type="hidden" name="image[]" class="form-control " value="` + img.src + `"/>
+					</div>
+					<a href="#" class="remove-lnk text-danger"><i class="fa fa-minus-circle"></i>Delete</a></div>
+          `);
+                // add input field
+                //     $('#count').html("Quantity: "+x);
+            }
+        };
+
+
+        function handleSuccess(stream) {
+            screenshotButton.disabled = false;
+            video.srcObject = stream;
+        }
+
+        btnChangeCamera.addEventListener("click", function () {
+            useFrontCamera = !useFrontCamera;
+            initializeCamera();
+        });
+
+        // stop video stream
+        function stopVideoStream() {
+            if (stream) {
+                stream.getTracks().forEach((track) => {
+                    track.stop();
+                });
+            }
+        }
+
+        // initialize
+        async function initializeCamera() {
+            stopVideoStream();
+            constraints.video.facingMode = useFrontCamera ? "user" : "environment";
+
+            try {
+                stream = await navigator.mediaDevices.getUserMedia(constraints);
+                video.srcObject = stream;
+            } catch (err) {
+                alert("Could not access the camera");
+            }
+        }
+
+        initializeCamera();
+
+        // allowed maximum input fields
+
+        var max_input = 20;
+
+        // initialize the counter for textbox
+        var x = 1;
+
+        // handle click event of the remove link
+        $('.wrapper').on("click", ".remove-lnk", function (e) {
+            e.preventDefault();
+            $(this).parent('.col-md-3').remove();  // remove input field
+            x--; // decrement the counter
+        });
+
+
+    });
+// signature pad start
+    function updateTabClass(id) {
+        if (id == 'update') {
+            $('#signatureParent').resize();
+        }
+    }
+    $(document).ready(function () {
+        // Initialize jSignature
+        var $sigdiv = $("#signature").jSignature({
+            'UndoButton': true
+        });
+
+        $('#signature').change(function () {
+            var data = $sigdiv.jSignature('getData', 'image');
+            // Storing in textarea
+            //$('#output').val(data);
+            // Alter image source
+            //  alert(data);
+            $('#imageBase64').attr('value', "data:" + data);
+            //   $('#sign_prev').show();
+        });
+    });
+    // signature pad end
+</script>
+<script src="<?php echo assets_url('assets/myjs/jSignature.min.js') . APPVER; ?>"></script>

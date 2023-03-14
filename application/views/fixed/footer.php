@@ -42,6 +42,7 @@
 <script src="<?php echo assets_url('assets/myjs/basic.js') . APPVER; ?>"></script>
 <script src="<?php echo assets_url('assets/myjs/control.js') . APPVER; ?>"></script>
 
+
 <script type="text/javascript">
     $.ajax({
 

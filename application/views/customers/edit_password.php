@@ -8,17 +8,11 @@
         <form method="post" id="data_form" class="form-horizontal">
             <div class="grid_3 grid_4">
 
-                <h5><?php echo $this->lang->line('Change Customer Password') ?> (<?php echo $customer['name'] ?>)</h5>
+                <h5 class="my-2 mx-2"><?php echo $this->lang->line('Change Customer Password') ?> (<?php echo $customer['name'] ?>)</h5>
                 <hr>
-
-
                 <input type="hidden" name="id" value="<?php echo $customer['id'] ?>">
-
-
                 <div class="form-group row">
-
-                    <label class="col-sm-2 col-form-label" for="email">Email</label>
-
+                    <label class="col-sm-2 col-form-label mx-2" for="email">Email</label>
                     <div class="col-sm-6">
                         <input type="text" placeholder="email"
                                class="form-control margin-bottom  required" name="email"
@@ -27,7 +21,7 @@
                 </div>
                 <div class="form-group row">
 
-                    <label class="col-sm-2 col-form-label"
+                    <label class="col-sm-2 col-form-label mx-2"
                            for="password"><?php echo $this->lang->line('Password') ?></label>
 
                     <div class="col-sm-6">
@@ -39,7 +33,7 @@
 
                 <div class="form-group row">
 
-                    <label class="col-sm-2 col-form-label"></label>
+                    <label class="col-sm-2 col-form-label mx-2"></label>
 
                     <div class="col-sm-4">
                         <input type="submit" id="submit-data" class="btn btn-success margin-bottom"
